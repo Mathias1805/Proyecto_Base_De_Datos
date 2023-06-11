@@ -31,7 +31,6 @@ public class Homepage extends javax.swing.JFrame {
         SetImageLabel(jLabel27,"src/images/Verde.png");
         SetImageLabel(jLabel38,"src/images/barra2.png");
         SetImageLabel(jLabel39,"src/images/fondo53.jpg");
-        SetImageLabel(jLabel40,"src/images/barra3.png");
         SetImageLabel(jLabel43,"src/images/barra3.png"); 
         
         
@@ -79,7 +78,6 @@ private void SetImageLabel(JLabel labelName, String root){
         jButton6 = new javax.swing.JButton();
         jLabel44 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
@@ -92,7 +90,6 @@ private void SetImageLabel(JLabel labelName, String root){
         jLabel31 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
@@ -239,15 +236,10 @@ private void SetImageLabel(JLabel labelName, String root){
         jLabel44.setFont(new java.awt.Font("Tw Cen MT", 1, 23)); // NOI18N
         jLabel44.setForeground(new java.awt.Color(255, 255, 255));
         jLabel44.setText("Ingresar Bolsas de Sangre");
-        jPanel3.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, 250, 40));
+        jPanel3.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 20, 250, 40));
 
         jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/barra3.png"))); // NOI18N
-        jPanel3.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(635, 20, 255, 40));
-
-        jLabel41.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
-        jLabel41.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel41.setText("Extraer Bolsas de Sangre");
-        jPanel3.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 250, 40));
+        jPanel3.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 255, 40));
 
         jTextField5.setBackground(new java.awt.Color(234, 240, 247));
         jTextField5.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
@@ -844,9 +836,6 @@ private void SetImageLabel(JLabel labelName, String root){
         jLabel35.setText("72 Litros");
         jPanel3.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, 150, 30));
 
-        jLabel40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/barra3.png"))); // NOI18N
-        jPanel3.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 20, 255, 40));
-
         jLabel33.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(231, 235, 31));
         jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1105,8 +1094,6 @@ private void SetImageLabel(JLabel labelName, String root){
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
