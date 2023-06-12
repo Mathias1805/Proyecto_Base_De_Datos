@@ -32,6 +32,8 @@ public class Homepage extends javax.swing.JFrame {
         SetImageLabel(jLabel38,"src/images/barra2.png");
         SetImageLabel(jLabel39,"src/images/fondo53.jpg");
         SetImageLabel(jLabel43,"src/images/barra3.png"); 
+        SetImageLabel(jLabel41,"src/images/barrita.png"); 
+        SetImageLabel(jLabel45,"src/images/barr3.png");
         
         
         jTabbedPane1.setVisible(true);
@@ -74,8 +76,6 @@ private void SetImageLabel(JLabel labelName, String root){
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jButton7 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
         jLabel44 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
@@ -83,8 +83,6 @@ private void SetImageLabel(JLabel labelName, String root){
         jTextField2 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jLabel37 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jButton4 = new javax.swing.JButton();
         jLabel36 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
@@ -92,13 +90,19 @@ private void SetImageLabel(JLabel labelName, String root){
         jLabel35 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel30 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         jLabel23 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
@@ -116,6 +120,22 @@ private void SetImageLabel(JLabel labelName, String root){
         jLabel39 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
+        jButton6 = new javax.swing.JButton();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jComboBox5 = new javax.swing.JComboBox<>();
+        jTextField9 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jTextField7 = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jButton5 = new javax.swing.JButton();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -157,7 +177,7 @@ private void SetImageLabel(JLabel labelName, String root){
         jButton2.setBackground(new java.awt.Color(68, 97, 242));
         jButton2.setFont(new java.awt.Font("Gill Sans MT", 1, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Banco de Sangre");
+        jButton2.setText("Citas");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2MouseClicked(evt);
@@ -208,49 +228,32 @@ private void SetImageLabel(JLabel labelName, String root){
         jButton7.setBackground(new java.awt.Color(68, 97, 242));
         jButton7.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("Limpiar Tabla");
+        jButton7.setText("Mostrar Pacientes");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 450, 240, 50));
-
-        jButton5.setBackground(new java.awt.Color(98, 0, 174));
-        jButton5.setFont(new java.awt.Font("Gill Sans MT", 1, 12)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Subir Bolsas al Banco de Sangre");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 380, 240, 50));
-
-        jButton6.setBackground(new java.awt.Color(98, 0, 174));
-        jButton6.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Cargar Bolsa de Sangre");
-        jPanel3.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 310, 240, 50));
+        jPanel3.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 380, 240, 50));
 
         jLabel44.setFont(new java.awt.Font("Tw Cen MT", 1, 23)); // NOI18N
         jLabel44.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel44.setText("Ingresar Bolsas de Sangre");
-        jPanel3.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 20, 250, 40));
+        jLabel44.setText("Citas");
+        jPanel3.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, 70, 40));
 
         jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/barra3.png"))); // NOI18N
-        jPanel3.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 255, 40));
+        jPanel3.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 570, 40));
 
         jTextField5.setBackground(new java.awt.Color(234, 240, 247));
         jTextField5.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jTextField5.setForeground(new java.awt.Color(79, 85, 90));
-        jTextField5.setText("ID Bolsa de Sangre");
+        jTextField5.setText("Cantidad De Sangre (Litros)");
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField5ActionPerformed(evt);
             }
         });
-        jPanel3.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 170, 240, 50));
+        jPanel3.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 240, 240, 50));
 
         jTextField1.setBackground(new java.awt.Color(234, 240, 247));
         jTextField1.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
@@ -261,7 +264,7 @@ private void SetImageLabel(JLabel labelName, String root){
                 jTextField1ActionPerformed(evt);
             }
         });
-        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 570, 50));
+        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 240, 50));
 
         jTextField2.setBackground(new java.awt.Color(234, 240, 247));
         jTextField2.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
@@ -277,13 +280,13 @@ private void SetImageLabel(JLabel labelName, String root){
         jTextField4.setBackground(new java.awt.Color(234, 240, 247));
         jTextField4.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jTextField4.setForeground(new java.awt.Color(79, 85, 90));
-        jTextField4.setText("Cantidad de Sangre en Litros");
+        jTextField4.setText("N° de Laboratorio");
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField4ActionPerformed(evt);
             }
         });
-        jPanel3.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 240, 50));
+        jPanel3.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 310, 240, 50));
 
         jLabel37.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
         jLabel37.setForeground(new java.awt.Color(244, 36, 149));
@@ -291,526 +294,16 @@ private void SetImageLabel(JLabel labelName, String root){
         jLabel37.setText("50 Litros");
         jPanel3.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 150, 30));
 
-        jTable1.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null}
-            },
-            new String [] {
-                "ID Bolsas de Sangre"
-            }
-        ));
-        jTable1.setToolTipText("");
-        jTable1.setGridColor(new java.awt.Color(255, 255, 255));
-        jTable1.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setViewportView(jTable1);
-
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, 240, 260));
-
         jButton4.setBackground(new java.awt.Color(98, 0, 174));
         jButton4.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Realizar Operación");
-        jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 240, 50));
+        jButton4.setText("Generar Cita");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, 240, 50));
 
         jLabel36.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
         jLabel36.setForeground(new java.awt.Color(24, 194, 205));
@@ -848,6 +341,23 @@ private void SetImageLabel(JLabel labelName, String root){
         jLabel32.setText("18 litros");
         jPanel3.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 600, 150, 30));
 
+        jLabel40.setBackground(new java.awt.Color(234, 240, 247));
+        jLabel40.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jLabel40.setForeground(new java.awt.Color(79, 85, 90));
+        jLabel40.setText("Tipo de Cita");
+        jLabel40.setToolTipText("");
+        jPanel3.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, 130, 50));
+
+        jLabel41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/barrita.png"))); // NOI18N
+        jLabel41.setBorder(new javax.swing.border.LineBorder(java.awt.Color.lightGray, 1, true));
+        jPanel3.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 240, 50));
+
+        jComboBox1.setBackground(new java.awt.Color(234, 240, 247));
+        jComboBox1.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jComboBox1.setForeground(new java.awt.Color(79, 85, 90));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Donación de Sangre", "Extracción de Muestra" }));
+        jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 170, 240, 50));
+
         jLabel30.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(244, 149, 36));
         jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -860,6 +370,17 @@ private void SetImageLabel(JLabel labelName, String root){
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
         jLabel29.setText("Sangre");
         jPanel3.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(157, 25, -1, -1));
+
+        jTextField6.setBackground(new java.awt.Color(234, 240, 247));
+        jTextField6.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jTextField6.setForeground(new java.awt.Color(79, 85, 90));
+        jTextField6.setText("Dni Paciente");
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 240, 50));
 
         jLabel28.setBackground(new java.awt.Color(255, 255, 255));
         jLabel28.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
@@ -884,6 +405,21 @@ private void SetImageLabel(JLabel labelName, String root){
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("AB-");
         jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 464, -1, -1));
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "DNI", "Nombre", "Apellido", "Tipo de Sangre", "Estado"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 450, 560, 190));
 
         jLabel23.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
@@ -947,17 +483,121 @@ private void SetImageLabel(JLabel labelName, String root){
         jTabbedPane1.addTab("tab1", jPanel3);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 940, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 689, Short.MAX_VALUE)
-        );
+        jButton6.setBackground(new java.awt.Color(98, 0, 174));
+        jButton6.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(255, 255, 255));
+        jButton6.setText("Realizar Cambio");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 490, 270, 50));
+
+        jLabel48.setFont(new java.awt.Font("Tw Cen MT", 1, 23)); // NOI18N
+        jLabel48.setForeground(new java.awt.Color(79, 85, 90));
+        jLabel48.setText("Modificar Muestra De Sangre");
+        jPanel4.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 430, 280, 30));
+
+        jLabel49.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/barrita.png"))); // NOI18N
+        jLabel49.setBorder(new javax.swing.border.LineBorder(java.awt.Color.lightGray, 1, true));
+        jPanel4.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 880, 50));
+
+        jComboBox4.setBackground(new java.awt.Color(234, 240, 247));
+        jComboBox4.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jComboBox4.setForeground(new java.awt.Color(79, 85, 90));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aprobar Muestra", "Rechazar Muestra" }));
+        jPanel4.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 490, 270, 50));
+
+        jComboBox3.setBackground(new java.awt.Color(234, 240, 247));
+        jComboBox3.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jComboBox3.setForeground(new java.awt.Color(79, 85, 90));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-" }));
+        jPanel4.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, 270, 50));
+
+        jComboBox5.setBackground(new java.awt.Color(234, 240, 247));
+        jComboBox5.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jComboBox5.setForeground(new java.awt.Color(79, 85, 90));
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Aprobado", "Rechazado", "Pendiente", " " }));
+        jPanel4.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, 270, 50));
+
+        jTextField9.setBackground(new java.awt.Color(234, 240, 247));
+        jTextField9.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jTextField9.setForeground(new java.awt.Color(79, 85, 90));
+        jTextField9.setText("Fecha");
+        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField9ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, 270, 50));
+
+        jTextField8.setBackground(new java.awt.Color(234, 240, 247));
+        jTextField8.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jTextField8.setForeground(new java.awt.Color(79, 85, 90));
+        jTextField8.setText("DNI");
+        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField8ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, 270, 50));
+
+        jComboBox2.setBackground(new java.awt.Color(234, 240, 247));
+        jComboBox2.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jComboBox2.setForeground(new java.awt.Color(79, 85, 90));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "DNI", "Tipo de Sangre", "Fecha", "Estado" }));
+        jPanel4.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 70, 270, 50));
+
+        jTextField7.setBackground(new java.awt.Color(234, 240, 247));
+        jTextField7.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jTextField7.setForeground(new java.awt.Color(79, 85, 90));
+        jTextField7.setText("ID Muestra de Sangre");
+        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField7ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, 270, 50));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "DNI", "Tipo de Sangre", "Fecha", "Estado"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 880, 270));
+
+        jButton5.setBackground(new java.awt.Color(98, 0, 174));
+        jButton5.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jButton5.setText("Mostrar Muestras de Sangre");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 270, 50));
+
+        jLabel47.setFont(new java.awt.Font("Tw Cen MT", 1, 23)); // NOI18N
+        jLabel47.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel47.setText("Muestras de Sangre");
+        jPanel4.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 0, 190, 40));
+
+        jLabel45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/barra3.png"))); // NOI18N
+        jPanel4.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 40));
+
+        jLabel46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo52.jpg"))); // NOI18N
+        jPanel4.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 690));
 
         jTabbedPane1.addTab("tab2", jPanel4);
 
@@ -1005,17 +645,41 @@ private void SetImageLabel(JLabel labelName, String root){
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
 
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
+
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_jTextField7ActionPerformed
+
+    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField8ActionPerformed
+
+    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField9ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1060,6 +724,11 @@ private void SetImageLabel(JLabel labelName, String root){
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1094,9 +763,16 @@ private void SetImageLabel(JLabel labelName, String root){
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1108,11 +784,17 @@ private void SetImageLabel(JLabel labelName, String root){
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 }
