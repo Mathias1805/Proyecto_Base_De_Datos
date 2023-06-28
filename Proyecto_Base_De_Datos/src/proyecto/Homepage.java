@@ -9,13 +9,14 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-
+import bdproyectofile.Enfermera;
+import java.util.List;
 /**
  *
  * @author MATHIAS
  */
 public class Homepage extends javax.swing.JFrame {
-
+    private Enfermera currentUser;
     /**
      * Creates new form Homepage
      */
@@ -36,6 +37,27 @@ public class Homepage extends javax.swing.JFrame {
         
         jTabbedPane1.setVisible(true);
     }
+    
+    public Homepage(Enfermera currentUser) {
+        initComponents();
+        this.setLocationRelativeTo(this);
+        this.jLabel2.setText(currentUser.getNombre()+" "+currentUser.getApellido());
+        SetImageLabel(jLabel3,"src/images/fondo2.jpg");
+        SetImageLabel(jLabel7,"src/images/corazon.png");
+        SetImageLabel(jLabel4,"src/images/Inline.png");
+        SetImageLabel(jLabel8,"src/images/Primary50.png");
+        SetImageLabel(jLabel9,"src/images/profile.png");
+        SetImageLabel(jLabel10,"src/images/Barra.png");
+        SetImageLabel(jLabel27,"src/images/Verde.png");
+        SetImageLabel(jLabel38,"src/images/barra2.png");
+        SetImageLabel(jLabel39,"src/images/fondo53.jpg");
+        SetImageLabel(jLabel43,"src/images/barra3.png"); 
+        
+        
+        jTabbedPane1.setVisible(true);
+    }
+    
+    
 private void SetImageLabel(JLabel labelName, String root){
                ImageIcon image = new ImageIcon(root);
                Icon icon = new ImageIcon(image.getImage().getScaledInstance(labelName.getWidth(), labelName.getHeight(), Image.SCALE_DEFAULT));
@@ -267,6 +289,11 @@ private void SetImageLabel(JLabel labelName, String root){
         jTextField2.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jTextField2.setForeground(new java.awt.Color(79, 85, 90));
         jTextField2.setText("Dni Médico/Enfermero");
+        jTextField2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField2MouseClicked(evt);
+            }
+        });
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -1016,6 +1043,10 @@ private void SetImageLabel(JLabel labelName, String root){
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jTextField2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2MouseClicked
 
     /**
      * @param args the command line arguments
