@@ -4,12 +4,16 @@
  */
 package proyecto;
 
+import bdproyectofile.ConexionDB;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import bdproyectofile.Enfermera;
+import bdproyectofile.GetBloodPerType;
+import bdproyectofile.blood_total;
+import java.sql.Connection;
 import java.util.List;
 /**
  *
@@ -17,6 +21,7 @@ import java.util.List;
  */
 public class Homepage extends javax.swing.JFrame {
     private Enfermera currentUser;
+    private List<blood_total> preload_bt;
     /**
      * Creates new form Homepage
      */
@@ -58,7 +63,19 @@ public class Homepage extends javax.swing.JFrame {
         
         jTabbedPane1.setVisible(true);
     }
-    
+    private void ChargeBloodTotal(){
+        ConexionDB connect_dat= new ConexionDB();
+        Connection test = null;
+        connect_dat.setData("sqlproject_","Oracle19c");
+        try{
+            test = connect_dat.getConnection();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
+        GetBloodPerType tb_con= new  GetBloodPerType(test);
+        this.preload_bt = tb_con.GetTotalBloodList();
+    }
     
 private void SetImageLabel(JLabel labelName, String root){
                ImageIcon image = new ImageIcon(root);
