@@ -3,24 +3,36 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package proyecto;
-
+import bdproyectofile.Enfermera;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-
+import java.awt.Container;
+import java.awt.CardLayout;
+import java.util.List;
 /**
  *
  * @author MATHIAS
  */
 public class Login extends javax.swing.JFrame {
-
+    private List<Enfermera> preloaduser;
+    private Homepage Homepage_;
+    private Enfermera currUser;
     /**
      * Creates new form NewJFrame
      */
     public Login() {
         initComponents();
+        this.setLocationRelativeTo(this);
+        SetbuttonLabel(jButton2,"src/images/eye.jpg");
+        SetImageLabel(jLabel7,"src/images/corazon.png");
+        SetImageLabel(jLabel3,"src/images/carnet-de-donante-de-organos.png");
+    }
+     public Login(List<Enfermera> listaEnfermera) {
+        initComponents();
+        this.preloaduser = listaEnfermera;
         this.setLocationRelativeTo(this);
         SetbuttonLabel(jButton2,"src/images/eye.jpg");
         SetImageLabel(jLabel7,"src/images/corazon.png");
@@ -86,6 +98,11 @@ public class Login extends javax.swing.JFrame {
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.setInheritsPopupMenu(true);
         jButton1.setMaximumSize(new java.awt.Dimension(400, 60));
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -186,9 +203,32 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        if (this.verified() == true){
+                this.dispose();
+                Homepage_ = new Homepage(this.currUser);
+                this.Homepage_.setVisible(true);
+        }
+        else{
+            System.out.println("Not FOUND");
+        }
+    }//GEN-LAST:event_jButton1MouseClicked
+
     /**
      * @param args the command line arguments
      */
+    private boolean verified(){
+        for (var i : this.preloaduser){
+            if (i.getCorreo().equals(jTextField1.getText()) && i.getPassword().equals(jPasswordField1.getText())){
+                this.currUser = i ;
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean isCorrect(){
+        return this.verified();
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
