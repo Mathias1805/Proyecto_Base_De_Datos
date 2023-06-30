@@ -23,14 +23,13 @@ public class getAllEnferm {
         try{
             this.myCon = myCon;
             st = myCon.createStatement();
-            this.setListPcts();
         }catch(SQLException e){
             e.printStackTrace();
         }
     }
-    private void setListPcts(){
+    private void setListPcts(String gmail,String password){
         try{
-            String query = "SELECT * FROM ENFERMERA";
+            String query = "SELECT * FROM ENFERMERA WHERE CORREO = '"+gmail+"' AND CONTRASEÑA = '"+password+"'";
             rs = st.executeQuery(query);
             
             while(rs.next()){
@@ -46,10 +45,9 @@ public class getAllEnferm {
             e.printStackTrace();
         }
     }
-    public List<Enfermera> GetEfrmList(){
-        
+    public List<Enfermera> GetEfrmList(String gmail,String password){
+        this.setListPcts(gmail, password);
         return this.allenferm;
-        
     }
     
 }

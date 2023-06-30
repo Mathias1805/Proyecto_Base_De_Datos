@@ -40,7 +40,7 @@ public class Homepage extends javax.swing.JFrame {
         SetImageLabel(jLabel43,"src/images/barra3.png"); 
         SetImageLabel(jLabel41,"src/images/barrita.png"); 
         SetImageLabel(jLabel45,"src/images/barr3.png");
-        
+    
         
         jTabbedPane1.setVisible(true);
     }
@@ -49,6 +49,7 @@ public class Homepage extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         this.jLabel2.setText(currentUser.getNombre()+" "+currentUser.getApellido());
+        this.ChargeBloodTotal();
         SetImageLabel(jLabel3,"src/images/fondo2.jpg");
         SetImageLabel(jLabel7,"src/images/corazon.png");
         SetImageLabel(jLabel4,"src/images/Inline.png");
@@ -74,7 +75,21 @@ public class Homepage extends javax.swing.JFrame {
         }
         
         GetBloodPerType tb_con= new  GetBloodPerType(test);
+        for (var i : tb_con.GetTotalBloodList()){
+            System.out.println(i.total);
+        }
         this.preload_bt = tb_con.GetTotalBloodList();
+        JLabel[] labels = {this.AposTotal,this.AnegTotal ,this.BposTotal,this.BnegTotal
+        ,this.ABposTotal,this.ABnegTotal,this.OposTotal,this.OnegTotal};
+        int it = 0;
+        for (var i : preload_bt){
+            if (i != null){
+                labels[it].setText(i.total+"LT");
+            }
+            it++;
+        }
+    
+ 
     }
     
 private void SetImageLabel(JLabel labelName, String root){
@@ -121,18 +136,18 @@ private void SetImageLabel(JLabel labelName, String root){
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
-        jLabel37 = new javax.swing.JLabel();
+        AnegTotal = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
+        BposTotal = new javax.swing.JLabel();
+        BnegTotal = new javax.swing.JLabel();
+        ABposTotal = new javax.swing.JLabel();
+        ABnegTotal = new javax.swing.JLabel();
+        OposTotal = new javax.swing.JLabel();
+        OnegTotal = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel30 = new javax.swing.JLabel();
+        AposTotal = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
@@ -332,11 +347,11 @@ private void SetImageLabel(JLabel labelName, String root){
         });
         jPanel3.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 310, 240, 50));
 
-        jLabel37.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
-        jLabel37.setForeground(new java.awt.Color(244, 36, 149));
-        jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel37.setText("50 Litros");
-        jPanel3.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 150, 30));
+        AnegTotal.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
+        AnegTotal.setForeground(new java.awt.Color(244, 36, 149));
+        AnegTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        AnegTotal.setText("50 Litros");
+        jPanel3.add(AnegTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 150, 30));
 
         jButton4.setBackground(new java.awt.Color(98, 0, 174));
         jButton4.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
@@ -349,41 +364,41 @@ private void SetImageLabel(JLabel labelName, String root){
         });
         jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, 240, 50));
 
-        jLabel36.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
-        jLabel36.setForeground(new java.awt.Color(24, 194, 205));
-        jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel36.setText("120 Litros");
-        jPanel3.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 150, 30));
+        BposTotal.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
+        BposTotal.setForeground(new java.awt.Color(24, 194, 205));
+        BposTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        BposTotal.setText("120 Litros");
+        jPanel3.add(BposTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 150, 30));
 
-        jLabel31.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
-        jLabel31.setForeground(new java.awt.Color(24, 115, 205));
-        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel31.setText("80 Litros");
-        jPanel3.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 150, 30));
+        BnegTotal.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
+        BnegTotal.setForeground(new java.awt.Color(24, 115, 205));
+        BnegTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        BnegTotal.setText("80 Litros");
+        jPanel3.add(BnegTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 150, 30));
 
-        jLabel34.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
-        jLabel34.setForeground(new java.awt.Color(93, 117, 131));
-        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel34.setText("90 Litros");
-        jPanel3.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 150, 30));
+        ABposTotal.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
+        ABposTotal.setForeground(new java.awt.Color(93, 117, 131));
+        ABposTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ABposTotal.setText("90 Litros");
+        jPanel3.add(ABposTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 150, 30));
 
-        jLabel35.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
-        jLabel35.setForeground(new java.awt.Color(51, 171, 48));
-        jLabel35.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel35.setText("72 Litros");
-        jPanel3.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, 150, 30));
+        ABnegTotal.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
+        ABnegTotal.setForeground(new java.awt.Color(51, 171, 48));
+        ABnegTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ABnegTotal.setText("72 Litros");
+        jPanel3.add(ABnegTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, 150, 30));
 
-        jLabel33.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
-        jLabel33.setForeground(new java.awt.Color(231, 235, 31));
-        jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel33.setText("42 Litros");
-        jPanel3.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 530, 150, 30));
+        OposTotal.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
+        OposTotal.setForeground(new java.awt.Color(231, 235, 31));
+        OposTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        OposTotal.setText("42 Litros");
+        jPanel3.add(OposTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 530, 150, 30));
 
-        jLabel32.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
-        jLabel32.setForeground(new java.awt.Color(243, 13, 13));
-        jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel32.setText("18 litros");
-        jPanel3.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 600, 150, 30));
+        OnegTotal.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
+        OnegTotal.setForeground(new java.awt.Color(243, 13, 13));
+        OnegTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        OnegTotal.setText("18 litros");
+        jPanel3.add(OnegTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 600, 150, 30));
 
         jLabel40.setBackground(new java.awt.Color(234, 240, 247));
         jLabel40.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
@@ -402,13 +417,18 @@ private void SetImageLabel(JLabel labelName, String root){
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Donación de Sangre", "Extracción de Muestra" }));
         jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 170, 240, 50));
 
-        jLabel30.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
-        jLabel30.setForeground(new java.awt.Color(244, 149, 36));
-        jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel30.setText("100 Litros");
-        jLabel30.setToolTipText("");
-        jLabel30.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jPanel3.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 150, 30));
+        AposTotal.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
+        AposTotal.setForeground(new java.awt.Color(244, 149, 36));
+        AposTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        AposTotal.setText("100 Litros");
+        AposTotal.setToolTipText("");
+        AposTotal.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        AposTotal.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                AposTotalComponentAdded(evt);
+            }
+        });
+        jPanel3.add(AposTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 150, 30));
 
         jLabel29.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
@@ -729,6 +749,10 @@ private void SetImageLabel(JLabel labelName, String root){
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2MouseClicked
 
+    private void AposTotalComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_AposTotalComponentAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AposTotalComponentAdded
+
     /**
      * @param args the command line arguments
      */
@@ -765,6 +789,14 @@ private void SetImageLabel(JLabel labelName, String root){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ABnegTotal;
+    private javax.swing.JLabel ABposTotal;
+    private javax.swing.JLabel AnegTotal;
+    private javax.swing.JLabel AposTotal;
+    private javax.swing.JLabel BnegTotal;
+    private javax.swing.JLabel BposTotal;
+    private javax.swing.JLabel OnegTotal;
+    private javax.swing.JLabel OposTotal;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -800,14 +832,6 @@ private void SetImageLabel(JLabel labelName, String root){
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;

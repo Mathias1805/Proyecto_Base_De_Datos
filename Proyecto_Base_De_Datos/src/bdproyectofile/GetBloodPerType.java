@@ -31,13 +31,13 @@ public class GetBloodPerType {
     }
     private void setListPcts(){
         try{
-            String query = "SELECT * vistal_tipo_total";
+            String query = "SELECT * FROM vistal_tipo_total";
             rs = st.executeQuery(query);
             
             while(rs.next()){
                 blood_total b = new blood_total();
-                b.total = rs.getDouble(1);
-                b.type_b = rs.getString(2);
+                b.total = rs.getDouble(2);
+                b.type_b = rs.getString(1);
                 type_total.add(b);
             }
         }catch(SQLException e){

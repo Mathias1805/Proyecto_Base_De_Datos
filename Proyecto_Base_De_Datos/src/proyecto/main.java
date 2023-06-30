@@ -13,18 +13,8 @@ public class main {
      */
     public static void main(String[] args) {
         
-        ConexionDB connect_dat= new ConexionDB();
-        Connection test = null;
-        connect_dat.setData("sqlproject_","Oracle19c");
-        try{
-            test = connect_dat.getConnection();
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        //PRELOAD
-        GetAllPcts getpcts = new GetAllPcts(test);
-        getAllEnferm getenfrm = new getAllEnferm(test);
-        Login login = new Login(getenfrm.GetEfrmList());
+
+        Login login = new Login();
         Homepage home = new Homepage();
         login.setVisible(true);
 
