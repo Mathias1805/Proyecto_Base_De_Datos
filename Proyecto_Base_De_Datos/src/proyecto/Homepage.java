@@ -708,8 +708,11 @@ private void SetImageLabel(JLabel labelName, String root){
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        
-            // TODO add your handling code here:
+        if (!jPanel3.isVisible()) {
+            this.jTabbedPane1.setSelectedIndex(0);
+        }
+        revalidate();
+        repaint();
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
@@ -775,19 +778,9 @@ private void SetImageLabel(JLabel labelName, String root){
     }//GEN-LAST:event_jComboBox1ItemStateChanged
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-    if (jPanel3.isVisible()) {
-        jPanel3.removeAll();
-        jPanel3.setVisible(false);
-        jPanel3.setEnabled(false);
-        jPanel4.repaint();
-        jPanel4.setEnabled(true);
-        jPanel4.setVisible(true);
-    } else {
-        jPanel3.setVisible(true);
-        jPanel3.setEnabled(true);
-        jPanel4.setVisible(false);
+    if (!jPanel4.isVisible()) {
+        this.jTabbedPane1.setSelectedIndex(1);
     }
-    
     revalidate();
     repaint();
     }//GEN-LAST:event_jButton3MouseClicked

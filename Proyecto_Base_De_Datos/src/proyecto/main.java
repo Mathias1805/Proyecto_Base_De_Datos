@@ -16,8 +16,8 @@ public class main {
 
         Login login = new Login();
         Homepage home = new Homepage();
-        login.setVisible(false);
-        home.setVisible(true);
+        login.setVisible(true);
+       // home.setVisible(true);
 
         
     }
