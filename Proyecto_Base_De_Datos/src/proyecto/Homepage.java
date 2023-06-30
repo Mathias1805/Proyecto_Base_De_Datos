@@ -424,6 +424,11 @@ private void SetImageLabel(JLabel labelName, String root){
         jComboBox1.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jComboBox1.setForeground(new java.awt.Color(79, 85, 90));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Donación de Sangre", "Extracción de Muestra" }));
+        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox1ItemStateChanged(evt);
+            }
+        });
         jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 170, 240, 50));
 
         AposTotal.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
@@ -774,6 +779,20 @@ private void SetImageLabel(JLabel labelName, String root){
     private void AposTotalComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_AposTotalComponentAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_AposTotalComponentAdded
+
+    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+        if (evt.getItem().toString().equals("Extracción de Muestra")){
+            jTextField1.setEditable(false);
+            jTextField5.setEditable(false);
+            jTextField1.setVisible(false);
+            jTextField5.setVisible(false);
+        }else{
+            jTextField1.setEditable(true);
+            jTextField5.setEditable(true);
+            jTextField1.setVisible(true);
+            jTextField5.setVisible(true);
+        }
+    }//GEN-LAST:event_jComboBox1ItemStateChanged
 
     /**
      * @param args the command line arguments
