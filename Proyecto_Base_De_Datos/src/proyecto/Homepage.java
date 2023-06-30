@@ -39,7 +39,8 @@ public class Homepage extends javax.swing.JFrame {
         SetImageLabel(jLabel39,"src/images/fondo53.jpg");
         SetImageLabel(jLabel43,"src/images/barra3.png"); 
         SetImageLabel(jLabel41,"src/images/barrita.png"); 
-        SetImageLabel(jLabel45,"src/images/barr3.png");
+        SetImageLabel(jLabel45,"src/images/barra3.png");
+        SetImageLabel(jLabel49,"src/images/barrita.png");
     
         
         jTabbedPane1.setVisible(true);
@@ -119,6 +120,7 @@ private void SetImageLabel(JLabel labelName, String root){
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jButton8 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -191,6 +193,7 @@ private void SetImageLabel(JLabel labelName, String root){
         jLabel45 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -222,11 +225,17 @@ private void SetImageLabel(JLabel labelName, String root){
         jLabel7.setText("jLabel7");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 60, 60));
 
+        jButton8.setBackground(new java.awt.Color(68, 97, 242));
+        jButton8.setFont(new java.awt.Font("Gill Sans MT", 1, 12)); // NOI18N
+        jButton8.setForeground(new java.awt.Color(255, 255, 255));
+        jButton8.setText("Reportes");
+        jPanel2.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 670, 240, 40));
+
         jButton1.setBackground(new java.awt.Color(68, 97, 242));
         jButton1.setFont(new java.awt.Font("Gill Sans MT", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Personas");
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 660, 240, 40));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 620, 240, 40));
 
         jButton2.setBackground(new java.awt.Color(68, 97, 242));
         jButton2.setFont(new java.awt.Font("Gill Sans MT", 1, 12)); // NOI18N
@@ -242,13 +251,13 @@ private void SetImageLabel(JLabel labelName, String root){
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 540, 240, 40));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, 240, 40));
 
         jButton3.setBackground(new java.awt.Color(68, 97, 242));
         jButton3.setFont(new java.awt.Font("Gill Sans MT", 1, 12)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Muestras de Sangre");
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 600, 240, 40));
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 570, 240, 40));
 
         jLabel2.setBackground(new java.awt.Color(102, 102, 102));
         jLabel2.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
@@ -678,6 +687,19 @@ private void SetImageLabel(JLabel labelName, String root){
 
         jTabbedPane1.addTab("tab3", jPanel5);
 
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 940, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 689, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("tab3", jPanel6);
+
         jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 940, 720));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/hospital2.png"))); // NOI18N
@@ -804,6 +826,7 @@ private void SetImageLabel(JLabel labelName, String root){
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
@@ -855,6 +878,7 @@ private void SetImageLabel(JLabel labelName, String root){
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
