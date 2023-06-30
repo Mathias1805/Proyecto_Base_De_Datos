@@ -48,19 +48,4 @@ public class InsertData {
             e.printStackTrace();
         };
     }
-    /*
-        public void InsertInTable(Cita c){
-        try{   
-            String ins= "INSERT INTO Cita (dni,idenfermera,nrolaboratorio,cantidadlt,fecha_cita,tipocita) VALUES(?,?,?,?,?,?)";
-            PreparedStatement statement = myCon.prepareStatement(ins);
-          
-            statement.setString(1,c.getDNI());
-            statement.setString(2,p.getApellido());
-            statement.setString(4,p.getCorreo());
-            statement.setString(5,p.getPassword());
-            statement.executeUpdate();
-        }catch(SQLException e){
-            e.printStackTrace();
-        };
-        }*/
 }
