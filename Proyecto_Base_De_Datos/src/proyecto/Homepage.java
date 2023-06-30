@@ -14,7 +14,9 @@ import bdproyectofile.Enfermera;
 import bdproyectofile.GetBloodPerType;
 import bdproyectofile.blood_total;
 import java.sql.Connection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 /**
  *
  * @author MATHIAS
@@ -43,7 +45,11 @@ public class Homepage extends javax.swing.JFrame {
         SetImageLabel(jLabel41,"src/images/barrita.png"); 
         SetImageLabel(jLabel45,"src/images/barra3.png");
         SetImageLabel(jLabel49,"src/images/barrita.png");
-        
+        jComboBox3.setVisible(false);
+        jComboBox5.setVisible(false);
+        jComboBox6.setVisible(false);
+        jTextField9.setVisible(false);
+        jTextField8.setVisible(false);
     
         
         jTabbedPane1.setVisible(true);
@@ -601,6 +607,11 @@ private void SetImageLabel(JLabel labelName, String root){
         jComboBox3.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jComboBox3.setForeground(new java.awt.Color(79, 85, 90));
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-", "N.A" }));
+        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox3ActionPerformed(evt);
+            }
+        });
         jPanel4.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, 270, 50));
 
         jComboBox5.setBackground(new java.awt.Color(234, 240, 247));
@@ -635,6 +646,16 @@ private void SetImageLabel(JLabel labelName, String root){
         jComboBox2.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jComboBox2.setForeground(new java.awt.Color(79, 85, 90));
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "DNI", "Tipo de Sangre", "Fecha", "Estado" }));
+        jComboBox2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox2ItemStateChanged(evt);
+            }
+        });
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
         jPanel4.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 70, 270, 50));
 
         jTextField7.setBackground(new java.awt.Color(234, 240, 247));
@@ -788,6 +809,39 @@ private void SetImageLabel(JLabel labelName, String root){
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox3ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jComboBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox2ItemStateChanged
+        /*Todos-> Ninguno
+            DNI->jTextField9
+            Fecha -> jTextField8
+            Tipo de Sangre -> jComboBox3
+            Estado -> jComboBox5*/
+            jComboBox3.setVisible(false);
+            jComboBox5.setVisible(false);
+            jComboBox6.setVisible(false);
+            jTextField9.setVisible(false);
+            jTextField8.setVisible(false);
+        if(evt.getItem().toString().equals("Fecha")){
+            jTextField9.setVisible(true);
+        }
+        if(evt.getItem().toString().equals("DNI")){
+            jTextField8.setVisible(true);
+        }
+        if(evt.getItem().toString().equals("Tipo de Sangre")){
+            jComboBox3.setVisible(true);
+        }
+        if (evt.getItem().toString().equals("Estado")){
+            jComboBox5.setVisible(true);
+        }
+    }//GEN-LAST:event_jComboBox2ItemStateChanged
 
     /**
      * @param args the command line arguments
