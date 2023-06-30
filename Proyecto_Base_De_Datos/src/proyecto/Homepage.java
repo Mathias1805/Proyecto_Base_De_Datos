@@ -25,7 +25,9 @@ public class Homepage extends javax.swing.JFrame {
     /**
      * Creates new form Homepage
      */
+   
     public Homepage() {
+        
         initComponents();
         this.setLocationRelativeTo(this);
         SetImageLabel(jLabel3,"src/images/fondo2.jpg");
@@ -41,6 +43,7 @@ public class Homepage extends javax.swing.JFrame {
         SetImageLabel(jLabel41,"src/images/barrita.png"); 
         SetImageLabel(jLabel45,"src/images/barra3.png");
         SetImageLabel(jLabel49,"src/images/barrita.png");
+        
     
         
         jTabbedPane1.setVisible(true);
@@ -193,6 +196,7 @@ private void SetImageLabel(JLabel labelName, String root){
         jLabel45 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
+        jLabel30 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -662,37 +666,22 @@ private void SetImageLabel(JLabel labelName, String root){
         jPanel4.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, 190, 40));
 
         jLabel45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/barra3.png"))); // NOI18N
-        jPanel4.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 940, 40));
+        jPanel4.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 920, 40));
 
         jLabel46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo52.jpg"))); // NOI18N
         jPanel4.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 690));
 
         jTabbedPane1.addTab("tab2", jPanel4);
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 945, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 696, Short.MAX_VALUE)
-        );
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel30.setText("jLabel30");
+        jPanel5.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 690));
+        SetImageLabel(jLabel30,"src/images/Left.png");
 
         jTabbedPane1.addTab("tab3", jPanel5);
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 945, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 696, Short.MAX_VALUE)
-        );
-
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jTabbedPane1.addTab("tab3", jPanel6);
 
         jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 940, 720));
@@ -847,6 +836,7 @@ private void SetImageLabel(JLabel labelName, String root){
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
