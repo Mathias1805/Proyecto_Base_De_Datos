@@ -47,7 +47,6 @@ public class Homepage extends javax.swing.JFrame {
         SetImageLabel(jLabel49,"src/images/barrita.png");
         jComboBox3.setVisible(false);
         jComboBox5.setVisible(false);
-        jComboBox6.setVisible(false);
         jTextField9.setVisible(false);
         jTextField8.setVisible(false);
     
@@ -826,7 +825,6 @@ private void SetImageLabel(JLabel labelName, String root){
             Estado -> jComboBox5*/
             jComboBox3.setVisible(false);
             jComboBox5.setVisible(false);
-            jComboBox6.setVisible(false);
             jTextField9.setVisible(false);
             jTextField8.setVisible(false);
         if(evt.getItem().toString().equals("Fecha")){
