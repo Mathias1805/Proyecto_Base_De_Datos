@@ -196,7 +196,6 @@ private void SetImageLabel(JLabel labelName, String root){
         jLabel45 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jLabel30 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -689,11 +688,6 @@ private void SetImageLabel(JLabel labelName, String root){
         jTabbedPane1.addTab("tab2", jPanel4);
 
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel30.setText("jLabel30");
-        jPanel5.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 690));
-        SetImageLabel(jLabel30,"src/images/Left.png");
-
         jTabbedPane1.addTab("tab3", jPanel5);
 
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -883,7 +877,6 @@ private void SetImageLabel(JLabel labelName, String root){
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
