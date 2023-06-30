@@ -600,7 +600,7 @@ private void SetImageLabel(JLabel labelName, String root){
         jComboBox3.setBackground(new java.awt.Color(234, 240, 247));
         jComboBox3.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jComboBox3.setForeground(new java.awt.Color(79, 85, 90));
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-", "N.A" }));
         jPanel4.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, 270, 50));
 
         jComboBox5.setBackground(new java.awt.Color(234, 240, 247));
