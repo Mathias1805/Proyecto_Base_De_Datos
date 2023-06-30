@@ -773,14 +773,14 @@ private void SetImageLabel(JLabel labelName, String root){
 
     private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
         if (evt.getItem().toString().equals("Extracción de Muestra")){
-            jTextField1.setEditable(false);
+      
             jTextField5.setEditable(false);
-            jTextField1.setVisible(false);
+     
             jTextField5.setVisible(false);
         }else{
-            jTextField1.setEditable(true);
+      
             jTextField5.setEditable(true);
-            jTextField1.setVisible(true);
+          
             jTextField5.setVisible(true);
         }
     }//GEN-LAST:event_jComboBox1ItemStateChanged
