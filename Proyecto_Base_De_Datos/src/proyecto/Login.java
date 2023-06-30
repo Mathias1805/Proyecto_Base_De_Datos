@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package proyecto;
+import bdproyectofile.ConexionDB;
 import bdproyectofile.Enfermera;
+import bdproyectofile.getAllEnferm;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -11,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Container;
 import java.awt.CardLayout;
+import java.sql.Connection;
 import java.util.List;
 /**
  *
@@ -218,11 +221,19 @@ public class Login extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     private boolean verified(){
-        for (var i : this.preloaduser){
-            if (i.getCorreo().equals(jTextField1.getText()) && i.getPassword().equals(jPasswordField1.getText())){
-                this.currUser = i ;
-                return true;
-            }
+        ConexionDB connect_dat= new ConexionDB();
+        Connection test = null;
+        connect_dat.setData("sqlproject_","Oracle19c");
+        try{
+            test = connect_dat.getConnection();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        getAllEnferm enferm = new getAllEnferm(test);
+        this.preloaduser = enferm.GetEfrmList(jTextField1.getText(), jPasswordField1.getText());
+        if (preloaduser.get(0)!=null){
+            this.currUser = preloaduser.get(0);
+            return true;
         }
         return false;
     }

@@ -4,12 +4,16 @@
  */
 package proyecto;
 
+import bdproyectofile.ConexionDB;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import bdproyectofile.Enfermera;
+import bdproyectofile.GetBloodPerType;
+import bdproyectofile.blood_total;
+import java.sql.Connection;
 import java.util.List;
 /**
  *
@@ -17,6 +21,7 @@ import java.util.List;
  */
 public class Homepage extends javax.swing.JFrame {
     private Enfermera currentUser;
+    private List<blood_total> preload_bt;
     /**
      * Creates new form Homepage
      */
@@ -37,9 +42,13 @@ public class Homepage extends javax.swing.JFrame {
         SetImageLabel(jLabel43,"src/images/barra3.png"); 
         SetImageLabel(jLabel41,"src/images/barrita.png"); 
 
+
         SetImageLabel(jLabel45,"src/images/barra3.png");
         SetImageLabel(jLabel49,"src/images/barrita.png");
     
+
+    
+     
         jTabbedPane1.setVisible(true);
     }
     
@@ -47,6 +56,7 @@ public class Homepage extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         this.jLabel2.setText(currentUser.getNombre()+" "+currentUser.getApellido());
+        this.ChargeBloodTotal();
         SetImageLabel(jLabel3,"src/images/fondo2.jpg");
         SetImageLabel(jLabel7,"src/images/corazon.png");
         SetImageLabel(jLabel4,"src/images/Inline.png");
@@ -62,7 +72,33 @@ public class Homepage extends javax.swing.JFrame {
         
         jTabbedPane1.setVisible(true);
     }
+    private void ChargeBloodTotal(){
+        ConexionDB connect_dat= new ConexionDB();
+        Connection test = null;
+        connect_dat.setData("sqlproject_","Oracle19c");
+        try{
+            test = connect_dat.getConnection();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
+        GetBloodPerType tb_con= new  GetBloodPerType(test);
+        for (var i : tb_con.GetTotalBloodList()){
+            System.out.println(i.total);
+        }
+        this.preload_bt = tb_con.GetTotalBloodList();
+        JLabel[] labels = {this.AposTotal,this.AnegTotal ,this.BposTotal,this.BnegTotal
+        ,this.ABposTotal,this.ABnegTotal,this.OposTotal,this.OnegTotal};
+        int it = 0;
+        for (var i : preload_bt){
+            if (i != null){
+                labels[it].setText(i.total+"LT");
+            }
+            it++;
+        }
     
+ 
+    }
     
 private void SetImageLabel(JLabel labelName, String root){
                ImageIcon image = new ImageIcon(root);
@@ -105,24 +141,24 @@ private void SetImageLabel(JLabel labelName, String root){
         jButton7 = new javax.swing.JButton();
         jLabel44 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel37 = new javax.swing.JLabel();
+        bloodCt = new javax.swing.JTextField();
+        BloodType = new javax.swing.JTextField();
+        DniEnferm = new javax.swing.JTextField();
+        LabNum = new javax.swing.JTextField();
+        AnegTotal = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
+        BposTotal = new javax.swing.JLabel();
+        BnegTotal = new javax.swing.JLabel();
+        ABposTotal = new javax.swing.JLabel();
+        ABnegTotal = new javax.swing.JLabel();
+        OposTotal = new javax.swing.JLabel();
+        OnegTotal = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel30 = new javax.swing.JLabel();
+        donat_or = new javax.swing.JComboBox<>();
+        AposTotal = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        DNIPCTE = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
@@ -283,65 +319,70 @@ private void SetImageLabel(JLabel labelName, String root){
         jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/barra3.png"))); // NOI18N
         jPanel3.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 570, 40));
 
-        jTextField5.setBackground(new java.awt.Color(234, 240, 247));
-        jTextField5.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(79, 85, 90));
-        jTextField5.setText("Cantidad De Sangre (Litros)");
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        bloodCt.setBackground(new java.awt.Color(234, 240, 247));
+        bloodCt.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        bloodCt.setForeground(new java.awt.Color(79, 85, 90));
+        bloodCt.setText("Cantidad De Sangre (Litros)");
+        bloodCt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                bloodCtActionPerformed(evt);
             }
         });
-        jPanel3.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 240, 240, 50));
+        jPanel3.add(bloodCt, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 240, 240, 50));
 
-        jTextField1.setBackground(new java.awt.Color(234, 240, 247));
-        jTextField1.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(79, 85, 90));
-        jTextField1.setText("Tipo de Sangre");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        BloodType.setBackground(new java.awt.Color(234, 240, 247));
+        BloodType.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        BloodType.setForeground(new java.awt.Color(79, 85, 90));
+        BloodType.setText("Tipo de Sangre");
+        BloodType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                BloodTypeActionPerformed(evt);
             }
         });
-        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 240, 50));
+        jPanel3.add(BloodType, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 240, 50));
 
-        jTextField2.setBackground(new java.awt.Color(234, 240, 247));
-        jTextField2.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(79, 85, 90));
-        jTextField2.setText("Dni Médico/Enfermero");
-        jTextField2.addMouseListener(new java.awt.event.MouseAdapter() {
+        DniEnferm.setBackground(new java.awt.Color(234, 240, 247));
+        DniEnferm.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        DniEnferm.setForeground(new java.awt.Color(79, 85, 90));
+        DniEnferm.setText("Dni Médico/Enfermero");
+        DniEnferm.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField2MouseClicked(evt);
+                DniEnfermMouseClicked(evt);
             }
         });
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        DniEnferm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                DniEnfermActionPerformed(evt);
             }
         });
-        jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 570, 50));
+        jPanel3.add(DniEnferm, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 570, 50));
 
-        jTextField4.setBackground(new java.awt.Color(234, 240, 247));
-        jTextField4.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(79, 85, 90));
-        jTextField4.setText("N° de Laboratorio");
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        LabNum.setBackground(new java.awt.Color(234, 240, 247));
+        LabNum.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        LabNum.setForeground(new java.awt.Color(79, 85, 90));
+        LabNum.setText("N° de Laboratorio");
+        LabNum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                LabNumActionPerformed(evt);
             }
         });
-        jPanel3.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 310, 240, 50));
+        jPanel3.add(LabNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 310, 240, 50));
 
-        jLabel37.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
-        jLabel37.setForeground(new java.awt.Color(244, 36, 149));
-        jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel37.setText("50 Litros");
-        jPanel3.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 150, 30));
+        AnegTotal.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
+        AnegTotal.setForeground(new java.awt.Color(244, 36, 149));
+        AnegTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        AnegTotal.setText("50 Litros");
+        jPanel3.add(AnegTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 150, 30));
 
         jButton4.setBackground(new java.awt.Color(98, 0, 174));
         jButton4.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Generar Cita");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -349,41 +390,41 @@ private void SetImageLabel(JLabel labelName, String root){
         });
         jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, 240, 50));
 
-        jLabel36.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
-        jLabel36.setForeground(new java.awt.Color(24, 194, 205));
-        jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel36.setText("120 Litros");
-        jPanel3.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 150, 30));
+        BposTotal.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
+        BposTotal.setForeground(new java.awt.Color(24, 194, 205));
+        BposTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        BposTotal.setText("120 Litros");
+        jPanel3.add(BposTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 150, 30));
 
-        jLabel31.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
-        jLabel31.setForeground(new java.awt.Color(24, 115, 205));
-        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel31.setText("80 Litros");
-        jPanel3.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 150, 30));
+        BnegTotal.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
+        BnegTotal.setForeground(new java.awt.Color(24, 115, 205));
+        BnegTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        BnegTotal.setText("80 Litros");
+        jPanel3.add(BnegTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 150, 30));
 
-        jLabel34.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
-        jLabel34.setForeground(new java.awt.Color(93, 117, 131));
-        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel34.setText("90 Litros");
-        jPanel3.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 150, 30));
+        ABposTotal.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
+        ABposTotal.setForeground(new java.awt.Color(93, 117, 131));
+        ABposTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ABposTotal.setText("90 Litros");
+        jPanel3.add(ABposTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 150, 30));
 
-        jLabel35.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
-        jLabel35.setForeground(new java.awt.Color(51, 171, 48));
-        jLabel35.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel35.setText("72 Litros");
-        jPanel3.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, 150, 30));
+        ABnegTotal.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
+        ABnegTotal.setForeground(new java.awt.Color(51, 171, 48));
+        ABnegTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ABnegTotal.setText("72 Litros");
+        jPanel3.add(ABnegTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, 150, 30));
 
-        jLabel33.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
-        jLabel33.setForeground(new java.awt.Color(231, 235, 31));
-        jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel33.setText("42 Litros");
-        jPanel3.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 530, 150, 30));
+        OposTotal.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
+        OposTotal.setForeground(new java.awt.Color(231, 235, 31));
+        OposTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        OposTotal.setText("42 Litros");
+        jPanel3.add(OposTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 530, 150, 30));
 
-        jLabel32.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
-        jLabel32.setForeground(new java.awt.Color(243, 13, 13));
-        jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel32.setText("18 litros");
-        jPanel3.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 600, 150, 30));
+        OnegTotal.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
+        OnegTotal.setForeground(new java.awt.Color(243, 13, 13));
+        OnegTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        OnegTotal.setText("18 litros");
+        jPanel3.add(OnegTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 600, 150, 30));
 
         jLabel40.setBackground(new java.awt.Color(234, 240, 247));
         jLabel40.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
@@ -396,35 +437,50 @@ private void SetImageLabel(JLabel labelName, String root){
         jLabel41.setBorder(new javax.swing.border.LineBorder(java.awt.Color.lightGray, 1, true));
         jPanel3.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 240, 50));
 
-        jComboBox1.setBackground(new java.awt.Color(234, 240, 247));
-        jComboBox1.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(79, 85, 90));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Donación de Sangre", "Extracción de Muestra" }));
-        jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 170, 240, 50));
+        donat_or.setBackground(new java.awt.Color(234, 240, 247));
+        donat_or.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        donat_or.setForeground(new java.awt.Color(79, 85, 90));
+        donat_or.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Donación de Sangre", "Extracción de Muestra" }));
+        donat_or.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                donat_orItemStateChanged(evt);
+            }
+        });
+        donat_or.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                donat_orActionPerformed(evt);
+            }
+        });
+        jPanel3.add(donat_or, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 170, 240, 50));
 
-        jLabel30.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
-        jLabel30.setForeground(new java.awt.Color(244, 149, 36));
-        jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel30.setText("100 Litros");
-        jLabel30.setToolTipText("");
-        jLabel30.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jPanel3.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 150, 30));
+        AposTotal.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
+        AposTotal.setForeground(new java.awt.Color(244, 149, 36));
+        AposTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        AposTotal.setText("100 Litros");
+        AposTotal.setToolTipText("");
+        AposTotal.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        AposTotal.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                AposTotalComponentAdded(evt);
+            }
+        });
+        jPanel3.add(AposTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 150, 30));
 
         jLabel29.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
         jLabel29.setText("Sangre");
         jPanel3.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(157, 25, -1, -1));
 
-        jTextField6.setBackground(new java.awt.Color(234, 240, 247));
-        jTextField6.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jTextField6.setForeground(new java.awt.Color(79, 85, 90));
-        jTextField6.setText("Dni Paciente");
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        DNIPCTE.setBackground(new java.awt.Color(234, 240, 247));
+        DNIPCTE.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        DNIPCTE.setForeground(new java.awt.Color(79, 85, 90));
+        DNIPCTE.setText("Dni Paciente");
+        DNIPCTE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                DNIPCTEActionPerformed(evt);
             }
         });
-        jPanel3.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 240, 50));
+        jPanel3.add(DNIPCTE, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 240, 50));
 
         jLabel28.setBackground(new java.awt.Color(255, 255, 255));
         jLabel28.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
@@ -694,33 +750,33 @@ private void SetImageLabel(JLabel labelName, String root){
             // TODO add your handling code here:
     }//GEN-LAST:event_jButton2MouseClicked
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void BloodTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BloodTypeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_BloodTypeActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void DniEnfermActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DniEnfermActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_DniEnfermActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void LabNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LabNumActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_LabNumActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void bloodCtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bloodCtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_bloodCtActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void DNIPCTEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DNIPCTEActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_DNIPCTEActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
@@ -742,9 +798,37 @@ private void SetImageLabel(JLabel labelName, String root){
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jTextField2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField2MouseClicked
+    private void DniEnfermMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DniEnfermMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2MouseClicked
+    }//GEN-LAST:event_DniEnfermMouseClicked
+
+    private void AposTotalComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_AposTotalComponentAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AposTotalComponentAdded
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void donat_orItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_donat_orItemStateChanged
+        if (evt.getItem().toString().equals("Extracción de Muestra")){
+            bloodCt.setEditable(false);
+            bloodCt.enableInputMethods(false);
+            bloodCt.setVisible(false);
+            this.BloodType.setEditable(false);
+            this.BloodType.enableInputMethods(false);
+            this.BloodType.setVisible(false);
+        }else{
+            bloodCt.setEditable(true);
+            this.BloodType.setEditable(true);
+            bloodCt.setVisible(true);
+           this.BloodType.setVisible(true);
+        }
+    }//GEN-LAST:event_donat_orItemStateChanged
+
+    private void donat_orActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donat_orActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_donat_orActionPerformed
 
 
     private void AposTotalComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_AposTotalComponentAdded
@@ -796,6 +880,20 @@ private void SetImageLabel(JLabel labelName, String root){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ABnegTotal;
+    private javax.swing.JLabel ABposTotal;
+    private javax.swing.JLabel AnegTotal;
+    private javax.swing.JLabel AposTotal;
+    private javax.swing.JTextField BloodType;
+    private javax.swing.JLabel BnegTotal;
+    private javax.swing.JLabel BposTotal;
+    private javax.swing.JTextField DNIPCTE;
+    private javax.swing.JTextField DniEnferm;
+    private javax.swing.JTextField LabNum;
+    private javax.swing.JLabel OnegTotal;
+    private javax.swing.JLabel OposTotal;
+    private javax.swing.JTextField bloodCt;
+    private javax.swing.JComboBox<String> donat_or;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -803,8 +901,10 @@ private void SetImageLabel(JLabel labelName, String root){
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+
     private javax.swing.JButton jButton8;
     private javax.swing.JComboBox<String> jComboBox1;
+
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
@@ -832,14 +932,6 @@ private void SetImageLabel(JLabel labelName, String root){
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
@@ -869,11 +961,6 @@ private void SetImageLabel(JLabel labelName, String root){
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
