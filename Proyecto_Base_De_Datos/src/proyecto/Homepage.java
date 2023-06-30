@@ -135,7 +135,6 @@ private void SetImageLabel(JLabel labelName, String root){
         jLabel44 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         AnegTotal = new javax.swing.JLabel();
@@ -179,6 +178,7 @@ private void SetImageLabel(JLabel labelName, String root){
         jButton6 = new javax.swing.JButton();
         jLabel48 = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
+        jComboBox6 = new javax.swing.JComboBox<>();
         jComboBox4 = new javax.swing.JComboBox<>();
         jComboBox3 = new javax.swing.JComboBox<>();
         jComboBox5 = new javax.swing.JComboBox<>();
@@ -318,17 +318,6 @@ private void SetImageLabel(JLabel labelName, String root){
         });
         jPanel3.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 240, 240, 50));
 
-        jTextField1.setBackground(new java.awt.Color(234, 240, 247));
-        jTextField1.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(79, 85, 90));
-        jTextField1.setText("Tipo de Sangre");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 240, 50));
-
         jTextField2.setBackground(new java.awt.Color(234, 240, 247));
         jTextField2.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jTextField2.setForeground(new java.awt.Color(79, 85, 90));
@@ -354,7 +343,7 @@ private void SetImageLabel(JLabel labelName, String root){
                 jTextField4ActionPerformed(evt);
             }
         });
-        jPanel3.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 310, 240, 50));
+        jPanel3.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 240, 50));
 
         AnegTotal.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
         AnegTotal.setForeground(new java.awt.Color(244, 36, 149));
@@ -567,7 +556,7 @@ private void SetImageLabel(JLabel labelName, String root){
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 490, 270, 50));
+        jPanel4.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 560, 270, 50));
 
         jLabel48.setFont(new java.awt.Font("Tw Cen MT", 1, 23)); // NOI18N
         jLabel48.setForeground(new java.awt.Color(79, 85, 90));
@@ -578,10 +567,16 @@ private void SetImageLabel(JLabel labelName, String root){
         jLabel49.setBorder(new javax.swing.border.LineBorder(java.awt.Color.lightGray, 1, true));
         jPanel4.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 880, 50));
 
+        jComboBox6.setBackground(new java.awt.Color(234, 240, 247));
+        jComboBox6.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jComboBox6.setForeground(new java.awt.Color(79, 85, 90));
+        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aprobar Muestra", "Rechazar Muestra" }));
+        jPanel4.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 490, 270, 50));
+
         jComboBox4.setBackground(new java.awt.Color(234, 240, 247));
         jComboBox4.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jComboBox4.setForeground(new java.awt.Color(79, 85, 90));
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aprobar Muestra", "Rechazar Muestra" }));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-" }));
         jPanel4.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 490, 270, 50));
 
         jComboBox3.setBackground(new java.awt.Color(234, 240, 247));
@@ -593,7 +588,7 @@ private void SetImageLabel(JLabel labelName, String root){
         jComboBox5.setBackground(new java.awt.Color(234, 240, 247));
         jComboBox5.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jComboBox5.setForeground(new java.awt.Color(79, 85, 90));
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Aprobado", "Rechazado", "Pendiente", " " }));
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Aprobado", "Rechazado", "Pendiente" }));
         jPanel4.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, 270, 50));
 
         jTextField9.setBackground(new java.awt.Color(234, 240, 247));
@@ -627,7 +622,7 @@ private void SetImageLabel(JLabel labelName, String root){
         jTextField7.setBackground(new java.awt.Color(234, 240, 247));
         jTextField7.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jTextField7.setForeground(new java.awt.Color(79, 85, 90));
-        jTextField7.setText("ID Muestra de Sangre");
+        jTextField7.setText("DNI");
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField7ActionPerformed(evt);
@@ -637,13 +632,13 @@ private void SetImageLabel(JLabel labelName, String root){
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "ID", "DNI", "Tipo de Sangre", "Fecha", "Estado"
+                "DNI", "Tipo de Sangre", "Fecha", "Estado"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -664,10 +659,10 @@ private void SetImageLabel(JLabel labelName, String root){
         jLabel47.setFont(new java.awt.Font("Tw Cen MT", 1, 23)); // NOI18N
         jLabel47.setForeground(new java.awt.Color(255, 255, 255));
         jLabel47.setText("Muestras de Sangre");
-        jPanel4.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 0, 190, 40));
+        jPanel4.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, 190, 40));
 
         jLabel45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/barra3.png"))); // NOI18N
-        jPanel4.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 40));
+        jPanel4.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 940, 40));
 
         jLabel46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo52.jpg"))); // NOI18N
         jPanel4.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 690));
@@ -678,11 +673,11 @@ private void SetImageLabel(JLabel labelName, String root){
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 940, Short.MAX_VALUE)
+            .addGap(0, 945, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 689, Short.MAX_VALUE)
+            .addGap(0, 696, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("tab3", jPanel5);
@@ -691,11 +686,11 @@ private void SetImageLabel(JLabel labelName, String root){
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 940, Short.MAX_VALUE)
+            .addGap(0, 945, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 689, Short.MAX_VALUE)
+            .addGap(0, 696, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("tab3", jPanel6);
@@ -718,10 +713,6 @@ private void SetImageLabel(JLabel labelName, String root){
         
             // TODO add your handling code here:
     }//GEN-LAST:event_jButton2MouseClicked
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
@@ -832,6 +823,7 @@ private void SetImageLabel(JLabel labelName, String root){
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JComboBox<String> jComboBox6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -884,7 +876,6 @@ private void SetImageLabel(JLabel labelName, String root){
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
