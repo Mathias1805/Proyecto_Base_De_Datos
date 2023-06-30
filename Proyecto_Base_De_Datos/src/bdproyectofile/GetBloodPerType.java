@@ -13,41 +13,40 @@ import java.util.List;
  *
  * @author Jose
  */
-public class getAllEnferm {
-    private List<Enfermera> allenferm = new ArrayList<Enfermera>();
+
+public class GetBloodPerType {
+    private List<blood_total> type_total = new ArrayList<blood_total>();
     private Connection myCon = null;
     private Statement st = null;
     private ResultSet rs = null;
-    public getAllEnferm(){}
-    public getAllEnferm(Connection myCon){
+    public GetBloodPerType(){}
+    public GetBloodPerType(Connection myCon){
         try{
             this.myCon = myCon;
             st = myCon.createStatement();
+            this.setListPcts();
         }catch(SQLException e){
             e.printStackTrace();
         }
     }
-    private void setListPcts(String gmail,String password){
+    private void setListPcts(){
         try{
-            String query = "SELECT * FROM ENFERMERA WHERE CORREO = '"+gmail+"' AND CONTRASEÑA = '"+password+"'";
+            String query = "SELECT * FROM vistal_tipo_total";
             rs = st.executeQuery(query);
             
             while(rs.next()){
-                Enfermera p = new Enfermera();
-                p.setIdEnfermera(rs.getLong(1));
-                p.setNombre(rs.getString(2));
-                p.setApellido(rs.getString(3));
-                p.setCorreo(rs.getString(5));
-                p.setPassword(rs.getString(6));
-                allenferm.add(p);
+                blood_total b = new blood_total();
+                b.total = rs.getDouble(2);
+                b.type_b = rs.getString(1);
+                type_total.add(b);
             }
         }catch(SQLException e){
             e.printStackTrace();
         }
     }
-    public List<Enfermera> GetEfrmList(String gmail,String password){
-        this.setListPcts(gmail, password);
-        return this.allenferm;
+    public List<blood_total> GetTotalBloodList(){
+        
+        return this.type_total;
+        
     }
-    
 }
