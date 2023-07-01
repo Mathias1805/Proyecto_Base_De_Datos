@@ -72,9 +72,10 @@ public class Homepage extends javax.swing.JFrame {
     
     public Homepage(Enfermera currentUser) {
         initComponents();
+        this.ChargeBloodTotal();
         this.setLocationRelativeTo(this);
         this.jLabel2.setText(currentUser.getNombre()+" "+currentUser.getApellido());
-        this.ChargeBloodTotal();
+
         SetImageLabel(jLabel3,"src/images/fondo2.jpg");
         SetImageLabel(jLabel7,"src/images/corazon.png");
         SetImageLabel(jLabel4,"src/images/Inline.png");
@@ -85,8 +86,20 @@ public class Homepage extends javax.swing.JFrame {
         SetImageLabel(jLabel38,"src/images/barra2.png");
         SetImageLabel(jLabel39,"src/images/fondo53.jpg");
         SetImageLabel(jLabel43,"src/images/barra3.png"); 
-        
+        SetImageLabel(jLabel41,"src/images/barrita.png"); 
+        SetImageLabel(jLabel45,"src/images/barra3.png");
+        SetImageLabel(jLabel49,"src/images/barrita.png");
+        SetImageLabel(jLabel30,"src/images/FondoTab5.jpg");
+        SetImageLabel(jLabel50,"src/images/barra3.png");
+        SetImageLabel(jLabel52,"src/images/Verde.png");
+        SetImageLabel(jLabel31,"src/images/fondotab6.jpg");
+        SetImageLabel(jLabel53,"src/images/Barra.png"); 
+        jComboBox3.setVisible(false);
+        jComboBox5.setVisible(false);
+        jTextField9.setVisible(false);
+        jTextField8.setVisible(false);        
         jTabbedPane1.setVisible(true);
+        this.LoadTableModelPacienteMuestras();
     }
     public void chargePatientsMsts(){
         Connection test = new AutoConnection("sqlproject_","Oracle19c").getConnection();
@@ -134,14 +147,8 @@ public class Homepage extends javax.swing.JFrame {
         }
     }
     private void ChargeBloodTotal(){
-        ConexionDB connect_dat= new ConexionDB();
-        Connection test = null;
-        connect_dat.setData("sqlproject_","Oracle19c");
-        try{
-            test = connect_dat.getConnection();
-        }catch(Exception e){
-            e.printStackTrace();
-        }
+        
+        Connection test = new AutoConnection("sqlproject_","Oracle19c").getConnection();
         
         GetBloodPerType tb_con= new  GetBloodPerType(test);
         for (var i : tb_con.GetTotalBloodList()){
@@ -152,13 +159,13 @@ public class Homepage extends javax.swing.JFrame {
         ,this.ABposTotal,this.ABnegTotal,this.OposTotal,this.OnegTotal};
         int it = 0;
         for (var i : preload_bt){
-            if (i != null){
+            if (!i.type_b.equals("N.A")){
                 labels[it].setText(i.total+"LT");
+                it++;
             }
-            it++;
+            
         }
-    
-        
+ 
     }
     
 private void SetImageLabel(JLabel labelName, String root){
