@@ -977,7 +977,6 @@ private void SetImageLabel(JLabel labelName, String root){
         jTextField21.setBackground(new java.awt.Color(234, 240, 247));
         jTextField21.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jTextField21.setForeground(new java.awt.Color(79, 85, 90));
-        jTextField21.setText("Nombre ");
         jTextField21.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField21ActionPerformed(evt);
@@ -1068,7 +1067,6 @@ private void SetImageLabel(JLabel labelName, String root){
         jTextField20.setBackground(new java.awt.Color(234, 240, 247));
         jTextField20.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jTextField20.setForeground(new java.awt.Color(79, 85, 90));
-        jTextField20.setText("Nombre ");
         jTextField20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField20ActionPerformed(evt);
@@ -1159,13 +1157,13 @@ private void SetImageLabel(JLabel labelName, String root){
 
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID Cita", "Tipo de Cita", "Nombre de Laboratorio", "ID Enfermera", "Nombre de Enfermera", "DNI Paciente", "Nombre de Paciente", "Tipo de Sangre"
             }
         ));
         jScrollPane4.setViewportView(jTable4);
