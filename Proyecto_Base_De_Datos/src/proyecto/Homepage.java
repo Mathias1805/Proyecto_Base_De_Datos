@@ -860,7 +860,7 @@ private void SetImageLabel(JLabel labelName, String root){
         jPanel5.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 200, 270, 50));
 
         jLabel52.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/barra3.png"))); // NOI18N
-        jPanel5.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 920, 40));
+        jPanel5.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 890, 40));
 
         jTextField14.setBackground(new java.awt.Color(234, 240, 247));
         jTextField14.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
@@ -923,7 +923,7 @@ private void SetImageLabel(JLabel labelName, String root){
         jPanel5.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, 190, 40));
 
         jLabel50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/barra3.png"))); // NOI18N
-        jPanel5.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 920, 40));
+        jPanel5.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 880, 40));
 
         jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Fotoo.jpg"))); // NOI18N
         jPanel5.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 690));
