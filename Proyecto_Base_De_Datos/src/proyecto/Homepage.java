@@ -803,7 +803,7 @@ private void SetImageLabel(JLabel labelName, String root){
         ));
         jScrollPane3.setViewportView(jTable3);
 
-        jPanel5.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 570, 270));
+        jPanel5.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 890, 270));
 
         jComboBox7.setBackground(new java.awt.Color(234, 240, 247));
         jComboBox7.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
