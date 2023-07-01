@@ -48,4 +48,31 @@ public class InsertData {
             e.printStackTrace();
         };
     }
+    public void InsertInTable(Cita c){
+        try{   
+            String ins= "INSERT INTO CITA (dni,idenfermera,nrolaboratorio,cantidadlt,tipocita) VALUES(?,?,?,?,?)";
+            PreparedStatement statement = myCon.prepareStatement(ins);
+            statement.setString(1,c.getDNI());
+            statement.setLong(2, c.getIdEnfermera());
+            statement.setInt(3, c.getNumLab());
+            statement.setDouble(4,c.getCantidadLt());
+            statement.setString(5,c.getTipocita());
+            statement.executeUpdate();
+        }catch(SQLException e){
+            e.printStackTrace();
+        };
+    }
+        public void InsertInTableCt(Cita c){
+        try{   
+            String ins= "INSERT INTO CITA (dni,idenfermera,nrolaboratorio,tipocita) VALUES(?,?,?,?)";
+            PreparedStatement statement = myCon.prepareStatement(ins);
+            statement.setString(1,c.getDNI());
+            statement.setLong(2, c.getIdEnfermera());
+            statement.setInt(3, c.getNumLab());
+            statement.setString(4,c.getTipocita());
+            statement.executeUpdate();
+        }catch(SQLException e){
+            e.printStackTrace();
+        };
+    }
 }

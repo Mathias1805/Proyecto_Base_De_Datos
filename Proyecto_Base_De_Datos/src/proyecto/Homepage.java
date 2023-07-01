@@ -18,11 +18,13 @@ import bdproyectofile.GetAllPcts;
 import bdproyectofile.Paciente;
 import bdproyectofile.GetAllMuestraPctsBD;
 import bdproyectofile.Paciente_muestra;
+import bdproyectofile.InsertData;
 import java.sql.Connection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import javax.swing.table.DefaultTableModel;
+import bdproyectofile.Cita;
 /**
  *
  * @author MATHIAS
@@ -504,6 +506,11 @@ private void SetImageLabel(JLabel labelName, String root){
         jButton4.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Generar Cita");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -1491,6 +1498,27 @@ private void SetImageLabel(JLabel labelName, String root){
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        //generacion de cita
+        Connection cnn = new AutoConnection("sqlproject_","Oracle19c").getConnection();
+        InsertData ins = new InsertData(cnn);
+        
+        Cita cita = new Cita();
+        cita.setDNI(jTextField6.getText());
+        cita.setIdEnfermera(Long.parseLong(jTextField2.getText()));
+        cita.setNumLab(Integer.parseInt(jTextField4.getText()));
+        cita.setCantidadLt(0);
+        if (jTextField5.isVisible()){
+            cita.setTipocita("Donación");
+            cita.setCantidadLt(Double.parseDouble(jTextField5.getText()));
+            ins.InsertInTable(cita);
+        }else{
+            cita.setTipocita("Muestra");
+            ins.InsertInTableCt(cita);
+        }
+
+    }//GEN-LAST:event_jButton4MouseClicked
 
     /**
      * @param args the command line arguments
