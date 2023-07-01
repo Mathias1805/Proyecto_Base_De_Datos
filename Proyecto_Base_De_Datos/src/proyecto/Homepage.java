@@ -112,14 +112,7 @@ public class Homepage extends javax.swing.JFrame {
         this.chargePatientsMsts();
         String estate;
         for (var i : inPatientMstTable){
-            Object PctsMs[];
-            if (i.muestra.getEstado().equals("En espera")){
-                estate = "Pendiente";
-                PctsMs = new Object[]{i.getDNI(),i.getName(),i.getSecondName(),i.muestra.getIdtiposange(),estate}; 
-            }else{
-                PctsMs = new Object[]{i.getDNI(),i.getName(),i.getSecondName(),i.muestra.getIdtiposange(),i.muestra.getEstado()}; 
-            }
-            
+            Object PctsMs[]= new Object[]{i.getDNI(),i.getName(),i.getSecondName(),i.muestra.getIdtiposange(),i.muestra.getEstado()}; 
             PatientMstsTable.addRow(PctsMs);
         }
     }
