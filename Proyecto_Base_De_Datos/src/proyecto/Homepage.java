@@ -817,10 +817,7 @@ private void SetImageLabel(JLabel labelName, String root){
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "DNI", "Nombre", "Apellido"
@@ -1121,10 +1118,16 @@ private void SetImageLabel(JLabel labelName, String root){
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        LoadTableModelPaciente();
-        if (!jPanel5.isVisible()) {
+        try{
+            LoadTableModelPaciente();
+            if (!jPanel5.isVisible()) {
+                this.jTabbedPane1.setSelectedIndex(2);
+            }
+        }catch(Exception e){
             this.jTabbedPane1.setSelectedIndex(2);
+           e.printStackTrace();
         }
+        
         revalidate();
         repaint();
     }//GEN-LAST:event_jButton1MouseClicked
