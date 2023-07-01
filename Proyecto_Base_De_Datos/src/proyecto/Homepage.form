@@ -1227,7 +1227,7 @@
                       <Color blue="5a" green="55" red="4f" type="rgb"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="10">
+                      <StringArray count="11">
                         <StringItem index="0" value="Todos"/>
                         <StringItem index="1" value="A+"/>
                         <StringItem index="2" value="A-"/>
@@ -1238,6 +1238,7 @@
                         <StringItem index="7" value="O+"/>
                         <StringItem index="8" value="O-"/>
                         <StringItem index="9" value="N.A"/>
+                        <StringItem index="10" value="Pendiente"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -2154,7 +2155,7 @@
                       <Color blue="5a" green="55" red="4f" type="rgb"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="10">
+                      <StringArray count="11">
                         <StringItem index="0" value="Todos"/>
                         <StringItem index="1" value="A+"/>
                         <StringItem index="2" value="A-"/>
@@ -2165,6 +2166,7 @@
                         <StringItem index="7" value="O+"/>
                         <StringItem index="8" value="O-"/>
                         <StringItem index="9" value="N.A"/>
+                        <StringItem index="10" value="Pendiente"/>
                       </StringArray>
                     </Property>
                   </Properties>

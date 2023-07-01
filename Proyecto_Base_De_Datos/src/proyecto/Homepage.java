@@ -733,7 +733,7 @@ private void SetImageLabel(JLabel labelName, String root){
         jComboBox3.setBackground(new java.awt.Color(234, 240, 247));
         jComboBox3.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jComboBox3.setForeground(new java.awt.Color(79, 85, 90));
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-", "N.A" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-", "N.A", "Pendiente" }));
         jComboBox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox3ActionPerformed(evt);
@@ -1117,7 +1117,7 @@ private void SetImageLabel(JLabel labelName, String root){
         jComboBox10.setBackground(new java.awt.Color(234, 240, 247));
         jComboBox10.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jComboBox10.setForeground(new java.awt.Color(79, 85, 90));
-        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-", "N.A" }));
+        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-", "N.A", "Pendiente" }));
         jComboBox10.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jComboBox10ItemStateChanged(evt);
