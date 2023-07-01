@@ -13,10 +13,14 @@ import javax.swing.JLabel;
 import bdproyectofile.Enfermera;
 import bdproyectofile.GetBloodPerType;
 import bdproyectofile.blood_total;
+import bdproyectofile.AutoConnection;
+import bdproyectofile.GetAllPcts;
+import bdproyectofile.Paciente;
 import java.sql.Connection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author MATHIAS
@@ -24,6 +28,8 @@ import java.util.Set;
 public class Homepage extends javax.swing.JFrame {
     private Enfermera currentUser;
     private List<blood_total> preload_bt;
+    private List<Paciente> inPatientTable;
+    private DefaultTableModel PatientTable;
     /**
      * Creates new form Homepage
      */
@@ -74,6 +80,20 @@ public class Homepage extends javax.swing.JFrame {
         SetImageLabel(jLabel43,"src/images/barra3.png"); 
         
         jTabbedPane1.setVisible(true);
+    }
+    public void chargePatients(){
+        Connection test = new AutoConnection("sqlproject_","Oracle19c").getConnection();
+        GetAllPcts pcts_Dat = new GetAllPcts(test);
+        this.inPatientTable = pcts_Dat.GetPctsList();    
+    }
+    
+    private void LoadTableModelPaciente(){
+        this.chargePatients();
+        this.PatientTable = (DefaultTableModel)this.jTable3.getModel();
+        for (var i : inPatientTable){
+            Object Pcts[] = new Object[]{i.getDNI(),i.getName(),i.getSecondName()}; 
+            PatientTable.addRow(Pcts);
+        }
     }
     private void ChargeBloodTotal(){
         ConexionDB connect_dat= new ConexionDB();
@@ -269,6 +289,11 @@ private void SetImageLabel(JLabel labelName, String root){
         jButton1.setFont(new java.awt.Font("Gill Sans MT", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Personas");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 620, 240, 40));
 
         jButton2.setBackground(new java.awt.Color(68, 97, 242));
@@ -1094,6 +1119,15 @@ private void SetImageLabel(JLabel labelName, String root){
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        LoadTableModelPaciente();
+        if (!jPanel5.isVisible()) {
+            this.jTabbedPane1.setSelectedIndex(2);
+        }
+        revalidate();
+        repaint();
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
