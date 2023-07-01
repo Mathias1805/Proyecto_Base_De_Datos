@@ -16,6 +16,8 @@ import bdproyectofile.blood_total;
 import bdproyectofile.AutoConnection;
 import bdproyectofile.GetAllPcts;
 import bdproyectofile.Paciente;
+import bdproyectofile.GetAllMuestraPctsBD;
+import bdproyectofile.Paciente_muestra;
 import java.sql.Connection;
 import java.util.HashSet;
 import java.util.List;
@@ -29,7 +31,9 @@ public class Homepage extends javax.swing.JFrame {
     private Enfermera currentUser;
     private List<blood_total> preload_bt;
     private List<Paciente> inPatientTable;
+    private List<Paciente_muestra> inPatientMstTable;
     private DefaultTableModel PatientTable;
+    private DefaultTableModel PatientMstsTable;
     /**
      * Creates new form Homepage
      */
@@ -58,9 +62,10 @@ public class Homepage extends javax.swing.JFrame {
         jComboBox5.setVisible(false);
         jTextField9.setVisible(false);
         jTextField8.setVisible(false);
-    
+        
         
         jTabbedPane1.setVisible(true);
+        this.LoadTableModelPacienteMuestras();
     }
     
     public Homepage(Enfermera currentUser) {
@@ -81,6 +86,41 @@ public class Homepage extends javax.swing.JFrame {
         
         jTabbedPane1.setVisible(true);
     }
+    public void chargePatientsMsts(){
+        Connection test = new AutoConnection("sqlproject_","Oracle19c").getConnection();
+        GetAllMuestraPctsBD toTablePm = new GetAllMuestraPctsBD(test);
+        this.inPatientMstTable = toTablePm.GetPctsMstList();
+    }
+    private void removerows(List<?> obj, DefaultTableModel tbl){
+        int size = obj.size();
+        size --;
+        for (var i : obj){
+            tbl.removeRow(size);
+            size--;
+        }
+    }
+    private void LoadTableModelPacienteMuestras(){
+      //  if (this.inPatientMstTable!=null){
+            //this.removerows(inPatientMstTable,PatientMstsTable);
+         //   this.inPatientMstTable.clear();
+        if (this.inPatientMstTable!=null){
+            PatientMstsTable.setRowCount(0);
+        }
+        this.PatientMstsTable = (DefaultTableModel)this.jTable2.getModel();
+        this.chargePatientsMsts();
+        String estate;
+        for (var i : inPatientMstTable){
+            Object PctsMs[];
+            if (i.muestra.getEstado().equals("En espera")){
+                estate = "Pendiente";
+                PctsMs = new Object[]{i.getDNI(),i.getName(),i.getSecondName(),i.muestra.getIdtiposange(),estate}; 
+            }else{
+                PctsMs = new Object[]{i.getDNI(),i.getName(),i.getSecondName(),i.muestra.getIdtiposange(),i.muestra.getEstado()}; 
+            }
+            
+            PatientMstsTable.addRow(PctsMs);
+        }
+    }
     public void chargePatients(){
         Connection test = new AutoConnection("sqlproject_","Oracle19c").getConnection();
         GetAllPcts pcts_Dat = new GetAllPcts(test);
@@ -88,6 +128,9 @@ public class Homepage extends javax.swing.JFrame {
     }
     
     private void LoadTableModelPaciente(){
+        if (this.inPatientTable!=null){
+            PatientTable.setRowCount(0);
+        }
         this.chargePatients();
         this.PatientTable = (DefaultTableModel)this.jTable3.getModel();
         for (var i : inPatientTable){
@@ -539,10 +582,7 @@ private void SetImageLabel(JLabel labelName, String root){
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "DNI", "Nombre", "Apellido", "Tipo de Sangre", "Estado"
@@ -948,9 +988,16 @@ private void SetImageLabel(JLabel labelName, String root){
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        if (!jPanel3.isVisible()) {
+        try{
+            this.LoadTableModelPacienteMuestras();
+            if (!jPanel3.isVisible()) {
+                this.jTabbedPane1.setSelectedIndex(0);
+            }
+        }catch(Exception e){
             this.jTabbedPane1.setSelectedIndex(0);
+            e.printStackTrace();
         }
+
         revalidate();
         repaint();
     }//GEN-LAST:event_jButton2MouseClicked
