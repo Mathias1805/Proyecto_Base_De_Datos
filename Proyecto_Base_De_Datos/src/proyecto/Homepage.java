@@ -58,6 +58,8 @@ public class Homepage extends javax.swing.JFrame {
         SetImageLabel(jLabel30,"src/images/FondoTab5.jpg");
         SetImageLabel(jLabel50,"src/images/barra3.png");
         SetImageLabel(jLabel52,"src/images/Verde.png");
+        SetImageLabel(jLabel31,"src/images/fondotab6.jpg");
+        SetImageLabel(jLabel53,"src/images/Barra.png");
         jComboBox3.setVisible(false);
         jComboBox5.setVisible(false);
         jTextField9.setVisible(false);
@@ -202,6 +204,7 @@ private void SetImageLabel(JLabel labelName, String root){
         jLabel8 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jButton11 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jButton7 = new javax.swing.JButton();
@@ -286,6 +289,29 @@ private void SetImageLabel(JLabel labelName, String root){
         jLabel50 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
+        jTextField21 = new javax.swing.JTextField();
+        jButton12 = new javax.swing.JButton();
+        jComboBox11 = new javax.swing.JComboBox<>();
+        jComboBox13 = new javax.swing.JComboBox<>();
+        jComboBox12 = new javax.swing.JComboBox<>();
+        jComboBox9 = new javax.swing.JComboBox<>();
+        jTextField20 = new javax.swing.JTextField();
+        jComboBox10 = new javax.swing.JComboBox<>();
+        jLabel63 = new javax.swing.JLabel();
+        jLabel61 = new javax.swing.JLabel();
+        jLabel65 = new javax.swing.JLabel();
+        jLabel64 = new javax.swing.JLabel();
+        jLabel62 = new javax.swing.JLabel();
+        jLabel60 = new javax.swing.JLabel();
+        jLabel59 = new javax.swing.JLabel();
+        jLabel58 = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable();
+        jLabel54 = new javax.swing.JLabel();
+        jLabel53 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -386,6 +412,22 @@ private void SetImageLabel(JLabel labelName, String root){
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo2.jpg"))); // NOI18N
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 720));
+
+        jButton11.setBackground(new java.awt.Color(68, 97, 242));
+        jButton11.setFont(new java.awt.Font("Gill Sans MT", 1, 12)); // NOI18N
+        jButton11.setForeground(new java.awt.Color(255, 255, 255));
+        jButton11.setText("Citas");
+        jButton11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton11MouseClicked(evt);
+            }
+        });
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, 240, 40));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 720));
 
@@ -798,7 +840,7 @@ private void SetImageLabel(JLabel labelName, String root){
         jComboBox8.setBackground(new java.awt.Color(234, 240, 247));
         jComboBox8.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jComboBox8.setForeground(new java.awt.Color(79, 85, 90));
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DNI", "Nombre", "Apellido" }));
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "DNI", "Nombre", "Apellido" }));
         jComboBox8.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jComboBox8ItemStateChanged(evt);
@@ -900,7 +942,7 @@ private void SetImageLabel(JLabel labelName, String root){
         jPanel5.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 200, 270, 50));
 
         jLabel52.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/barra3.png"))); // NOI18N
-        jPanel5.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 920, 40));
+        jPanel5.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 890, 40));
 
         jTextField14.setBackground(new java.awt.Color(234, 240, 247));
         jTextField14.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
@@ -963,7 +1005,7 @@ private void SetImageLabel(JLabel labelName, String root){
         jPanel5.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, 190, 40));
 
         jLabel50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/barra3.png"))); // NOI18N
-        jPanel5.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 920, 40));
+        jPanel5.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 880, 40));
 
         jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Fotoo.jpg"))); // NOI18N
         jPanel5.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 690));
@@ -971,6 +1013,213 @@ private void SetImageLabel(JLabel labelName, String root){
         jTabbedPane1.addTab("tab3", jPanel5);
 
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextField21.setBackground(new java.awt.Color(234, 240, 247));
+        jTextField21.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jTextField21.setForeground(new java.awt.Color(79, 85, 90));
+        jTextField21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField21ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jTextField21, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 210, 270, 50));
+
+        jButton12.setBackground(new java.awt.Color(68, 97, 242));
+        jButton12.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jButton12.setForeground(new java.awt.Color(255, 255, 255));
+        jButton12.setText("Mostrar");
+        jButton12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton12MouseClicked(evt);
+            }
+        });
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 350, 270, 50));
+
+        jComboBox11.setBackground(new java.awt.Color(234, 240, 247));
+        jComboBox11.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jComboBox11.setForeground(new java.awt.Color(79, 85, 90));
+        jComboBox11.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Donación de Sangre", "Extracción de Muestra" }));
+        jComboBox11.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox11ItemStateChanged(evt);
+            }
+        });
+        jComboBox11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox11ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jComboBox11, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 270, 50));
+
+        jComboBox13.setBackground(new java.awt.Color(234, 240, 247));
+        jComboBox13.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jComboBox13.setForeground(new java.awt.Color(79, 85, 90));
+        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "ID", "Nombre", "Apellido" }));
+        jComboBox13.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox13ItemStateChanged(evt);
+            }
+        });
+        jComboBox13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox13ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jComboBox13, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 270, 50));
+
+        jComboBox12.setBackground(new java.awt.Color(234, 240, 247));
+        jComboBox12.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jComboBox12.setForeground(new java.awt.Color(79, 85, 90));
+        jComboBox12.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "ID", "Nombre", "Apellido" }));
+        jComboBox12.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox12ItemStateChanged(evt);
+            }
+        });
+        jComboBox12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox12ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jComboBox12, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 270, 50));
+
+        jComboBox9.setBackground(new java.awt.Color(234, 240, 247));
+        jComboBox9.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jComboBox9.setForeground(new java.awt.Color(79, 85, 90));
+        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Bioquímica", "Microbiología", "Inmunología", "Genética", "Farmacología", "Hematología", "Virología", "Patología", "Toxicología", "Epidemiología", "Biología-Molecular", "Química", "Analítica", "Anatomía", "Patológica", "Citología", "Biomedicina", "Bioinformática", "Neurociencia", "Biotecnología", "Fisiología", "Investigación" }));
+        jComboBox9.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox9ItemStateChanged(evt);
+            }
+        });
+        jComboBox9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox9ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jComboBox9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 270, 50));
+
+        jTextField20.setBackground(new java.awt.Color(234, 240, 247));
+        jTextField20.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jTextField20.setForeground(new java.awt.Color(79, 85, 90));
+        jTextField20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField20ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jTextField20, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 280, 270, 50));
+
+        jComboBox10.setBackground(new java.awt.Color(234, 240, 247));
+        jComboBox10.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jComboBox10.setForeground(new java.awt.Color(79, 85, 90));
+        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-", "N.A" }));
+        jComboBox10.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox10ItemStateChanged(evt);
+            }
+        });
+        jComboBox10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox10ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jComboBox10, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, 270, 50));
+
+        jLabel63.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel63.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jLabel63.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel63.setText("       Enfermera");
+        jLabel63.setToolTipText("");
+        jPanel6.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 130, 50));
+
+        jLabel61.setBackground(new java.awt.Color(68, 97, 242));
+        jLabel61.setForeground(new java.awt.Color(68, 97, 242));
+        jLabel61.setBorder(new javax.swing.border.LineBorder(java.awt.Color.lightGray, 1, true));
+        jLabel61.setOpaque(true);
+        jPanel6.add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 240, 50));
+
+        jLabel65.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel65.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jLabel65.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel65.setText("    Tipo de Sangre");
+        jLabel65.setToolTipText("");
+        jPanel6.add(jLabel65, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 130, 50));
+
+        jLabel64.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel64.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jLabel64.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel64.setText("         Paciente");
+        jLabel64.setToolTipText("");
+        jPanel6.add(jLabel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 130, 50));
+
+        jLabel62.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel62.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jLabel62.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel62.setText("     Laboratorios");
+        jLabel62.setToolTipText("");
+        jPanel6.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 130, 50));
+
+        jLabel60.setBackground(new java.awt.Color(68, 97, 242));
+        jLabel60.setForeground(new java.awt.Color(68, 97, 242));
+        jLabel60.setBorder(new javax.swing.border.LineBorder(java.awt.Color.lightGray, 1, true));
+        jLabel60.setOpaque(true);
+        jPanel6.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 240, 50));
+
+        jLabel59.setBackground(new java.awt.Color(68, 97, 242));
+        jLabel59.setForeground(new java.awt.Color(68, 97, 242));
+        jLabel59.setBorder(new javax.swing.border.LineBorder(java.awt.Color.lightGray, 1, true));
+        jLabel59.setOpaque(true);
+        jPanel6.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 240, 50));
+
+        jLabel58.setBackground(new java.awt.Color(68, 97, 242));
+        jLabel58.setForeground(new java.awt.Color(68, 97, 242));
+        jLabel58.setBorder(new javax.swing.border.LineBorder(java.awt.Color.lightGray, 1, true));
+        jLabel58.setOpaque(true);
+        jPanel6.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 240, 50));
+
+        jLabel57.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel57.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jLabel57.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel57.setText("            Citas");
+        jLabel57.setToolTipText("");
+        jPanel6.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 130, 50));
+
+        jLabel56.setBackground(new java.awt.Color(68, 97, 242));
+        jLabel56.setForeground(new java.awt.Color(68, 97, 242));
+        jLabel56.setBorder(new javax.swing.border.LineBorder(java.awt.Color.lightGray, 1, true));
+        jLabel56.setOpaque(true);
+        jPanel6.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 240, 50));
+
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID Cita", "Tipo de Cita", "Nombre de Laboratorio", "ID Enfermera", "Nombre de Enfermera", "DNI Paciente", "Nombre de Paciente", "Tipo de Sangre"
+            }
+        ));
+        jScrollPane4.setViewportView(jTable4);
+
+        jPanel6.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 920, 250));
+
+        jLabel54.setBackground(new java.awt.Color(33, 203, 103));
+        jLabel54.setFont(new java.awt.Font("Tw Cen MT", 1, 23)); // NOI18N
+        jLabel54.setForeground(new java.awt.Color(33, 203, 103));
+        jLabel54.setText("        Reportes");
+        jPanel6.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, 190, 40));
+
+        jLabel53.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/barra3.png"))); // NOI18N
+        jPanel6.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 920, 40));
+        jPanel6.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 690));
+
         jTabbedPane1.addTab("tab3", jPanel6);
 
         jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 940, 720));
@@ -1179,6 +1428,70 @@ private void SetImageLabel(JLabel labelName, String root){
         repaint();
     }//GEN-LAST:event_jButton1MouseClicked
 
+    private void jComboBox9ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox9ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox9ItemStateChanged
+
+    private void jComboBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox9ActionPerformed
+
+    private void jTextField20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField20ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField20ActionPerformed
+
+    private void jComboBox10ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox10ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox10ItemStateChanged
+
+    private void jComboBox10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox10ActionPerformed
+
+    private void jComboBox11ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox11ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox11ItemStateChanged
+
+    private void jComboBox11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox11ActionPerformed
+
+    private void jComboBox12ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox12ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox12ItemStateChanged
+
+    private void jComboBox12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox12ActionPerformed
+
+    private void jComboBox13ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox13ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox13ItemStateChanged
+
+    private void jComboBox13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox13ActionPerformed
+
+    private void jTextField21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField21ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField21ActionPerformed
+
+    private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton11MouseClicked
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton12MouseClicked
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton12ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1225,6 +1538,8 @@ private void SetImageLabel(JLabel labelName, String root){
     private javax.swing.JLabel OposTotal;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1234,6 +1549,10 @@ private void SetImageLabel(JLabel labelName, String root){
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox10;
+    private javax.swing.JComboBox<String> jComboBox11;
+    private javax.swing.JComboBox<String> jComboBox12;
+    private javax.swing.JComboBox<String> jComboBox13;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
@@ -1241,6 +1560,7 @@ private void SetImageLabel(JLabel labelName, String root){
     private javax.swing.JComboBox<String> jComboBox6;
     private javax.swing.JComboBox<String> jComboBox7;
     private javax.swing.JComboBox<String> jComboBox8;
+    private javax.swing.JComboBox<String> jComboBox9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1265,6 +1585,7 @@ private void SetImageLabel(JLabel labelName, String root){
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
@@ -1282,8 +1603,20 @@ private void SetImageLabel(JLabel labelName, String root){
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -1296,10 +1629,12 @@ private void SetImageLabel(JLabel labelName, String root){
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
@@ -1309,6 +1644,8 @@ private void SetImageLabel(JLabel labelName, String root){
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField20;
+    private javax.swing.JTextField jTextField21;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
