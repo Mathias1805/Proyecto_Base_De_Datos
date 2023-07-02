@@ -1607,28 +1607,32 @@ private void SetImageLabel(JLabel labelName, String root){
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
+        this.Reportes = (DefaultTableModel)this.jTable4.getModel();
+        Reportes.setRowCount(0);
         String idcita = this.CboxCitas.getItemAt(CboxCitas.getSelectedIndex()).toString();
         String tipocita = this.CboxCitas.getItemAt(CboxCitas.getSelectedIndex()).toString();
-        String Especialidad = this.CboxLab.getItemAt(CboxCitas.getSelectedIndex()).toString();
-        String idEnf = this.CboxEnf.getItemAt(CboxCitas.getSelectedIndex()).toString();
-        String NombreEnf = this.CboxEnf.getItemAt(CboxCitas.getSelectedIndex()).toString();
-        String ApellidoEnf = this.CboxEnf.getItemAt(CboxCitas.getSelectedIndex()).toString();
-        String DNIpct = this.CbosPac.getItemAt(CboxCitas.getSelectedIndex()).toString();
-        String NombrePct = this.CbosPac.getItemAt(CboxCitas.getSelectedIndex()).toString();
-        String Apellido = this.CbosPac.getItemAt(CboxCitas.getSelectedIndex()).toString();
-        String tiposangre = this.CboxTipoSangre.getItemAt(CboxCitas.getSelectedIndex()).toString();
+        String Especialidad = this.CboxLab.getItemAt(CboxLab.getSelectedIndex()).toString();
+        String idEnf = this.CboxEnf.getItemAt(CboxEnf.getSelectedIndex()).toString();
+        String NombreEnf = "IS NOT NULL";
+        String ApellidoEnf = "IS NOT NULL";
+        String DNIpct = this.CbosPac.getItemAt(CbosPac.getSelectedIndex()).toString();
+        String NombrePct = "IS NOT NULL";
+        String Apellido = "IS NOT NULL";
+        String tiposangre = this.CboxTipoSangre.getItemAt(CboxTipoSangre.getSelectedIndex()).toString();
         if (idcita.equals("Todos")){
             idcita = "IS NOT NULL";
             tipocita = "IS NOT NULL";
         }else{
             idcita = "IS NOT NULL";
-            tipocita = "= "+tipocita;
+            tipocita = "= '"+tipocita+"'";
         }
-        if (!Especialidad.equals("Todos")){
-            Especialidad = "= "+Especialidad;
-        }else{
+        if (Especialidad.equals("Todos")){
             Especialidad = "IS NOT NULL";
+        }else{
+
+            Especialidad = "= '"+Especialidad+"'";
         }
+        System.out.println("THIS::" + idEnf);
         if (idEnf.equals("Todos")){
             idEnf = "IS NOT NULL";
             NombreEnf ="IS NOT NULL";
@@ -1651,25 +1655,50 @@ private void SetImageLabel(JLabel labelName, String root){
             NombrePct = "IS NOT NULL";
             Apellido = "IS NOT NULL";
         }else if(DNIpct.equals("DNI")){
-            idEnf = "= "+this.PacSearchValue.getText();
+            DNIpct = "= '"+this.PacSearchValue.getText()+"'";
             NombrePct = "IS NOT NULL";
             Apellido= "IS NOT NULL";
         }else if(DNIpct.equals("Nombre")){
-            idEnf = "IS NOT NULL";
+            DNIpct = "IS NOT NULL";
             NombrePct = "= '"+this.PacSearchValue.getText()+"'";
             Apellido = "IS NOT NULL";
         }else{
-            idEnf = "IS NOT NULL";
+            DNIpct = "IS NOT NULL";
             NombrePct = "IS NOT NULL";
             Apellido = "= '"+this.PacSearchValue.getText()+"'";         
         }
         if (tiposangre.equals("Todos")){
             tiposangre = "IS NOT NULL";
         }else{
-            tiposangre = "= '"+tiposangre;
+            tiposangre = "= '"+tiposangre+"'";
         }
 
-        String query = idcita = "IS NOT NULL";
+        String query = "SELECT IDCITA,TIPOCITA,ESPECIALIDAD,IDENFERMERA,NOMBRE_ENFERMERA,DNI,NOMBRE_PACIENTE,IDTIPOSANGRE FROM SHOWUNIONSCITA WHERE "
+                + "IDCITA "+idcita+ " AND TIPOCITA "+tipocita+ " AND ESPECIALIDAD "+Especialidad+" AND IDENFERMERA "
+                +idEnf +" AND NOMBRE_ENFERMERA "+NombreEnf+" AND APELLIDO_ENFERMERA "+ApellidoEnf+" AND DNI "
+                + DNIpct+" AND NOMBRE_PACIENTE "+NombrePct+" AND APELLIDO "+Apellido+" AND IDTIPOSANGRE "+tiposangre+"";
+        Connection cnn = new AutoConnection("sqlproject_","Oracle19c").getConnection();
+        OneConsult one = new OneConsult(cnn);
+        System.out.println(query);
+        one.setQuery(query);
+        ResultSet rs = one.getResponse();
+        try{
+            while(rs.next()){
+                long value1 = rs.getLong(1);
+                String value2 = rs.getString(2);
+                String value3 = rs.getString(3);
+                long value4 = rs.getLong(4);
+                String value5 = rs.getString(5);
+                String value6 = rs.getString(6);
+                String value7 = rs.getString(7);
+                String value8 = rs.getString(8);
+                Object obj[] = {value1,value2,value3,value4,value5,value6,value7,value8};
+                Reportes.addRow(obj);
+            }            
+        }catch(SQLException e){
+            
+        }
+
     }//GEN-LAST:event_jButton12MouseClicked
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
