@@ -13,6 +13,7 @@ import java.sql.PreparedStatement;
  */
 public class InsertData {
     private Connection myCon = null;
+    private SQLException Error = null;
     public InsertData(){
         
     }
@@ -31,6 +32,7 @@ public class InsertData {
             statement.setString(3,p.getSecondName());
             statement.executeUpdate();
         }catch(SQLException e){
+            this.Error = e;
             e.printStackTrace();
         }finally{
             System.out.println("Error superado");
@@ -47,6 +49,7 @@ public class InsertData {
             statement.setString(5,p.getPassword());
             statement.executeUpdate();
         }catch(SQLException e){
+            this.Error = e;
             e.printStackTrace();
         }finally{
             System.out.println("Error superado");
@@ -63,6 +66,7 @@ public class InsertData {
             statement.setString(5,c.getTipocita());
             statement.executeUpdate();
         }catch(SQLException e){
+            this.Error = e;
             e.printStackTrace();
         }finally{
             System.out.println("Error superado");
@@ -78,6 +82,7 @@ public class InsertData {
             statement.setString(4,c.getTipocita());
             statement.executeUpdate();
         }catch(SQLException e){
+            this.Error = e;
             e.printStackTrace();
         }finally{
             System.out.println("Error superado");
@@ -91,6 +96,7 @@ public class InsertData {
             statement.setString(2, c.getIdtiposange());
             statement.executeUpdate();
         }catch(SQLException e){
+            this.Error = e;
             e.printStackTrace();
         }finally{
             System.out.println("Error superado");
@@ -105,6 +111,7 @@ public class InsertData {
             statement.setString(2, p.getSecondName());
             statement.executeUpdate();
         }catch(SQLException e){
+            this.Error = e;
             e.printStackTrace();
         }finally{
             System.out.println("Error superado");
@@ -116,9 +123,13 @@ public class InsertData {
             PreparedStatement statement = myCon.prepareStatement(ins);
             statement.executeUpdate();
         }catch(SQLException e){
+            this.Error = e;
             e.printStackTrace();
         }finally{
             System.out.println("Error superado");
         }           
+    }
+    public SQLException IsError(){
+        return this.Error;
     }
 }

@@ -32,6 +32,7 @@ import java.util.regex.Matcher;
 import bdproyectofile.OneConsult;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 /**
  *
  * @author MATHIAS
@@ -1723,6 +1724,9 @@ private void SetImageLabel(JLabel labelName, String root){
             cita.setTipocita("Muestra");
             ins.InsertInTableCt(cita);
         }
+        if (ins.IsError()!=null){
+            JOptionPane.showMessageDialog(null, ins.IsError().getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
+        }
 
     }//GEN-LAST:event_jButton4MouseClicked
 
@@ -1747,7 +1751,9 @@ private void SetImageLabel(JLabel labelName, String root){
             ins.InsertInTable(muestra);
             this.LoadTableModelMuestrasSangre();
         }
-        
+        if (ins.IsError()!=null){
+            JOptionPane.showMessageDialog(null, ins.IsError().getMessage(), "Error", ins.IsError().getErrorCode());
+        }
 
     }//GEN-LAST:event_jButton6MouseClicked
 
@@ -1855,7 +1861,9 @@ private void SetImageLabel(JLabel labelName, String root){
             p.setName(jTextField15.getText());
             p.setSecondName(jTextField12.getText());
             ins.InsertInTable(p);
-            
+            if (ins.IsError()!=null){
+            JOptionPane.showMessageDialog(null, ins.IsError().getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
+            }
         }
         if(jComboBox7.getSelectedIndex()==1){
             InsertData ins = new InsertData(cnn);
@@ -1864,12 +1872,18 @@ private void SetImageLabel(JLabel labelName, String root){
             p.setName(jTextField13.getText());
             p.setSecondName(jTextField14.getText());   
             ins.Update(p);
+            if (ins.IsError()!=null){
+            JOptionPane.showMessageDialog(null, ins.IsError().getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
+            }
         }
         if(jComboBox7.getSelectedIndex()==2){
             InsertData ins = new InsertData(cnn);
             Paciente p = new Paciente();
             p.setDNI(jTextField13.getText());
             ins.Delete(p);
+            if (ins.IsError()!=null){
+            JOptionPane.showMessageDialog(null, ins.IsError().getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
+            }            
         }
         LoadTableModelPaciente();
     }//GEN-LAST:event_jButton9MouseClicked
