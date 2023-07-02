@@ -29,6 +29,9 @@ import javax.swing.table.DefaultTableModel;
 import bdproyectofile.Cita;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
+import bdproyectofile.OneConsult;
+import java.sql.SQLException;
+import java.sql.ResultSet;
 /**
  *
  * @author MATHIAS
@@ -413,6 +416,11 @@ private void SetImageLabel(JLabel labelName, String root){
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton3MouseClicked(evt);
+            }
+        });
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
             }
         });
         jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 570, 240, 40));
@@ -847,6 +855,11 @@ private void SetImageLabel(JLabel labelName, String root){
         jButton5.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("Mostrar Muestras de Sangre");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -1393,6 +1406,9 @@ private void SetImageLabel(JLabel labelName, String root){
         if (evt.getItem().toString().equals("Estado")){
             jComboBox5.setVisible(true);
         }
+        if (evt.getItem().toString().equals("Todos")){
+             this.LoadTableModelMuestrasSangre();
+        }
     }//GEN-LAST:event_jComboBox2ItemStateChanged
 
     private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
@@ -1575,6 +1591,62 @@ private void SetImageLabel(JLabel labelName, String root){
         
 
     }//GEN-LAST:event_jButton6MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        //jComboBox2
+        if (jComboBox2.getSelectedIndex() == 1){
+            System.out.println(jTextField8.getText());
+            this.chargeMuestrasSangre();
+            if(this.inMuestraSangreTable!=null){
+                MuestrasSangreTable.setRowCount(0);
+            }
+            for (var i : this.inMuestraSangreTable){
+                if (i.getDNI().equals(jTextField8.getText().toString())){
+                    Object PctsMs[]= new Object[]{i.getDNI(),i.getIdtiposange(),i.getFecha(),i.getEstado()}; 
+                    MuestrasSangreTable.addRow(PctsMs);
+                }
+            }
+ 
+        }
+        else if(jComboBox2.getSelectedIndex() == 0){
+            this.LoadTableModelMuestrasSangre();
+        }
+        else if (jComboBox2.getSelectedIndex() == 2 ){
+            System.out.println(jTextField8.getText());
+            System.out.println(jComboBox3.getItemAt(jComboBox3.getSelectedIndex()).toString());
+            this.chargeMuestrasSangre();
+            if(this.inMuestraSangreTable!=null){
+                MuestrasSangreTable.setRowCount(0);
+            }
+            for (var i : this.inMuestraSangreTable){
+                if (i.getIdtiposange().equals(jComboBox3.getItemAt(jComboBox3.getSelectedIndex()).toString())){
+                    Object PctsMs[]= new Object[]{i.getDNI(),i.getIdtiposange(),i.getFecha(),i.getEstado()}; 
+                    MuestrasSangreTable.addRow(PctsMs);
+                }
+            }       
+        }
+        else if (jComboBox2.getSelectedIndex() == 3 ){
+            System.out.println(jTextField9.getText());
+            System.out.println(jComboBox3.getItemAt(jComboBox3.getSelectedIndex()).toString());
+            this.chargeMuestrasSangre();
+            if(this.inMuestraSangreTable!=null){
+                MuestrasSangreTable.setRowCount(0);
+            }
+            for (var i : this.inMuestraSangreTable){
+                try{
+                    if (i.getFecha().toString().equals(jTextField9.getText())){
+                    Object PctsMs[]= new Object[]{i.getDNI(),i.getIdtiposange(),i.getFecha(),i.getEstado()}; 
+                    MuestrasSangreTable.addRow(PctsMs);
+                    }
+                }catch(Exception e){}
+                
+            }       
+        }
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
