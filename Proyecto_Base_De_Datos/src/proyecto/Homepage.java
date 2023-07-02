@@ -76,7 +76,9 @@ public class Homepage extends javax.swing.JFrame {
         jComboBox5.setVisible(false);
         jTextField9.setVisible(false);
         jTextField8.setVisible(false);
-        
+        this.jTextField13.setVisible(false);
+        this.jTextField14.setVisible(false);
+        this.jTextField18.setVisible(false);
         
         jTabbedPane1.setVisible(true);
         this.LoadTableModelPacienteMuestras();
@@ -111,6 +113,9 @@ public class Homepage extends javax.swing.JFrame {
         jTextField9.setVisible(false);
         jTextField8.setVisible(false);        
         jTabbedPane1.setVisible(true);
+            this.jTextField13.setVisible(false);
+            this.jTextField14.setVisible(false);
+            this.jTextField18.setVisible(false);
         this.LoadTableModelPacienteMuestras();
     }
     private void LoadTableModelMuestrasSangre(){
@@ -316,6 +321,7 @@ private void SetImageLabel(JLabel labelName, String root){
         jLabel51 = new javax.swing.JLabel();
         jLabel50 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
+        jTextField18 = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jTextField21 = new javax.swing.JTextField();
         jButton12 = new javax.swing.JButton();
@@ -787,7 +793,17 @@ private void SetImageLabel(JLabel labelName, String root){
         jComboBox5.setBackground(new java.awt.Color(234, 240, 247));
         jComboBox5.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jComboBox5.setForeground(new java.awt.Color(79, 85, 90));
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Aprobado", "Rechazado", "Pendiente" }));
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aprobado", "Rechazado", "Pendiente" }));
+        jComboBox5.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox5ItemStateChanged(evt);
+            }
+        });
+        jComboBox5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox5ActionPerformed(evt);
+            }
+        });
         jPanel4.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, 270, 50));
 
         jTextField9.setBackground(new java.awt.Color(234, 240, 247));
@@ -876,6 +892,11 @@ private void SetImageLabel(JLabel labelName, String root){
         jPanel4.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 920, 40));
 
         jLabel46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo52.jpg"))); // NOI18N
+        jLabel46.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel46MouseClicked(evt);
+            }
+        });
         jPanel4.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 690));
 
         jTabbedPane1.addTab("tab2", jPanel4);
@@ -979,6 +1000,11 @@ private void SetImageLabel(JLabel labelName, String root){
         jButton9.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jButton9.setForeground(new java.awt.Color(255, 255, 255));
         jButton9.setText("Enviar");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
@@ -1054,6 +1080,17 @@ private void SetImageLabel(JLabel labelName, String root){
 
         jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Fotoo.jpg"))); // NOI18N
         jPanel5.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 690));
+
+        jTextField18.setBackground(new java.awt.Color(234, 240, 247));
+        jTextField18.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jTextField18.setForeground(new java.awt.Color(79, 85, 90));
+        jTextField18.setText("DNI Eliminar");
+        jTextField18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField18ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 130, 270, 50));
 
         jTabbedPane1.addTab("tab3", jPanel5);
 
@@ -1359,6 +1396,7 @@ private void SetImageLabel(JLabel labelName, String root){
     }//GEN-LAST:event_jComboBox1ItemStateChanged
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        jComboBox7.setSelectedIndex(0);
         try{
             this.LoadTableModelMuestrasSangre();
             if (!jPanel4.isVisible()) {
@@ -1428,7 +1466,29 @@ private void SetImageLabel(JLabel labelName, String root){
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jComboBox7ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox7ItemStateChanged
-        // TODO add your handling code here:
+            this.jTextField13.setVisible(false);
+            this.jTextField14.setVisible(false);
+            this.jTextField18.setVisible(false);
+            this.jTextField13.setText("Nuevo Nombre");
+        if(evt.getItem().toString().equals("Agregar")){
+            this.jTextField13.setVisible(false);
+            this.jTextField14.setVisible(false);
+            this.jTextField15.setVisible(true);
+            this.jTextField12.setVisible(true);
+        }
+        if(evt.getItem().toString().equals("Modificar")){
+            this.jTextField13.setVisible(true);
+            this.jTextField14.setVisible(true);
+            this.jTextField15.setVisible(false);
+            this.jTextField12.setVisible(false);
+        }
+        if(evt.getItem().toString().equals("Eliminar")){
+            this.jTextField13.setVisible(true);
+            this.jTextField13.setText("DNI Eliminar");
+            this.jTextField14.setVisible(false);
+            
+        }
+        
     }//GEN-LAST:event_jComboBox7ItemStateChanged
 
     private void jComboBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox7ActionPerformed
@@ -1468,7 +1528,10 @@ private void SetImageLabel(JLabel labelName, String root){
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        try{
+        
+        try{            
+            this.jTextField13.setVisible(false);
+            this.jTextField14.setVisible(false);
             LoadTableModelPaciente();
             if (!jPanel5.isVisible()) {
                 this.jTabbedPane1.setSelectedIndex(2);
@@ -1642,11 +1705,78 @@ private void SetImageLabel(JLabel labelName, String root){
                 
             }       
         }
+        else if (jComboBox2.getSelectedIndex() == 4 ){
+            /*Todos
+            Aprobado
+            Rechazado
+            Pendiente*/
+            this.chargeMuestrasSangre();
+            if(this.inMuestraSangreTable!=null){
+                MuestrasSangreTable.setRowCount(0);
+            }
+            String estate = jComboBox5.getItemAt(jComboBox5.getSelectedIndex()).toString();
+            if (estate.equals("Aprobado")){
+                estate = "Aceptado";
+            }
+            for (var i : this.inMuestraSangreTable){
+                try{
+                    if (i.getEstado().equals(estate)){
+                    Object PctsMs[]= new Object[]{i.getDNI(),i.getIdtiposange(),i.getFecha(),i.getEstado()}; 
+                    MuestrasSangreTable.addRow(PctsMs);
+                    }
+                }catch(Exception e){}
+                
+            }             
+        }
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jLabel46MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel46MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel46MouseClicked
+
+    private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox5ActionPerformed
+
+    private void jComboBox5ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox5ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox5ItemStateChanged
+
+    private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField18ActionPerformed
+
+    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+        Connection cnn = new AutoConnection("sqlproject_","Oracle19c").getConnection();
+        if (jComboBox7.getSelectedIndex()==0){
+            InsertData ins = new InsertData(cnn);
+            Paciente p = new Paciente();
+            p.setDNI(jTextField10.getText());
+            p.setName(jTextField15.getText());
+            p.setSecondName(jTextField12.getText());
+            ins.InsertInTable(p);
+            
+        }
+        if(jComboBox7.getSelectedIndex()==1){
+            InsertData ins = new InsertData(cnn);
+            Paciente p = new Paciente();
+            p.setDNI(jTextField10.getText());
+            p.setName(jTextField13.getText());
+            p.setSecondName(jTextField14.getText());   
+            ins.Update(p);
+        }
+        if(jComboBox7.getSelectedIndex()==2){
+            InsertData ins = new InsertData(cnn);
+            Paciente p = new Paciente();
+            p.setDNI(jTextField13.getText());
+            ins.Delete(p);
+        }
+        LoadTableModelPaciente();
+    }//GEN-LAST:event_jButton9MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1799,6 +1929,7 @@ private void SetImageLabel(JLabel labelName, String root){
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
+    private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField21;

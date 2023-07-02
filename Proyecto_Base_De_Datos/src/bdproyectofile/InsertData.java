@@ -32,6 +32,8 @@ public class InsertData {
             statement.executeUpdate();
         }catch(SQLException e){
             e.printStackTrace();
+        }finally{
+            System.out.println("Error superado");
         };
     }
     public void InsertInTable(Enfermera p){
@@ -46,7 +48,9 @@ public class InsertData {
             statement.executeUpdate();
         }catch(SQLException e){
             e.printStackTrace();
-        };
+        }finally{
+            System.out.println("Error superado");
+        };;
     }
     public void InsertInTable(Cita c){
         try{   
@@ -60,7 +64,9 @@ public class InsertData {
             statement.executeUpdate();
         }catch(SQLException e){
             e.printStackTrace();
-        };
+        }finally{
+            System.out.println("Error superado");
+        };;
     }
     public void InsertInTableCt(Cita c){
         try{   
@@ -73,7 +79,9 @@ public class InsertData {
             statement.executeUpdate();
         }catch(SQLException e){
             e.printStackTrace();
-        };
+        }finally{
+            System.out.println("Error superado");
+        };;
     }
         public void InsertInTable(Muestra c){
         try{   
@@ -84,6 +92,33 @@ public class InsertData {
             statement.executeUpdate();
         }catch(SQLException e){
             e.printStackTrace();
-        };
+        }finally{
+            System.out.println("Error superado");
+        };;
+
+    }
+    public void Update(Paciente p){
+        try{   
+            String ins= "UPDATE PACIENTE SET NOMBRE = ? , APELLIDO = ? WHERE DNI = '"+p.getDNI()+"'";
+            PreparedStatement statement = myCon.prepareStatement(ins);
+            statement.setString(1,p.getName());
+            statement.setString(2, p.getSecondName());
+            statement.executeUpdate();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }finally{
+            System.out.println("Error superado");
+        }           
+    }
+    public void Delete(Paciente p){
+        try{   
+            String ins= "DELETE FROM PACIENTE WHERE DNI = '"+p.getDNI()+"'";
+            PreparedStatement statement = myCon.prepareStatement(ins);
+            statement.executeUpdate();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }finally{
+            System.out.println("Error superado");
+        }           
     }
 }
