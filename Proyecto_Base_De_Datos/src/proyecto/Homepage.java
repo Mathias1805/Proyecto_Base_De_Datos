@@ -27,6 +27,8 @@ import java.util.List;
 import java.util.Set;
 import javax.swing.table.DefaultTableModel;
 import bdproyectofile.Cita;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 /**
  *
  * @author MATHIAS
@@ -730,6 +732,11 @@ private void SetImageLabel(JLabel labelName, String root){
         jButton6.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("Realizar Cambio");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -826,10 +833,7 @@ private void SetImageLabel(JLabel labelName, String root){
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "DNI", "Tipo de Sangre", "Fecha", "Estado"
@@ -1537,7 +1541,7 @@ private void SetImageLabel(JLabel labelName, String root){
         cita.setNumLab(Integer.parseInt(jTextField4.getText()));
         cita.setCantidadLt(0);
         if (jTextField5.isVisible()){
-            cita.setTipocita("Donación");
+            cita.setTipocita("Donacion");
             cita.setCantidadLt(Double.parseDouble(jTextField5.getText()));
             ins.InsertInTable(cita);
         }else{
@@ -1546,6 +1550,31 @@ private void SetImageLabel(JLabel labelName, String root){
         }
 
     }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        Connection cnn = new AutoConnection("sqlproject_","Oracle19c").getConnection();
+        InsertData ins = new InsertData(cnn);
+        boolean textfieldDNiValid;
+        String regex = "\\d{8}";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(jTextField7.getText());
+        textfieldDNiValid = matcher.matches();
+        System.out.println(jComboBox4.getItemAt(jComboBox4.getSelectedIndex()).toString());
+        if (textfieldDNiValid){
+            Muestra muestra = new Muestra();
+            muestra.setDNI(jTextField7.getText());
+            muestra.setIdtiposange(jComboBox4.getItemAt(jComboBox4.getSelectedIndex()).toString());
+            if(jComboBox6.getItemAt(jComboBox6.getSelectedIndex()).toString().equals("Aprobar Muestra")){
+                muestra.setEstado("Aceptado");
+            }else{
+                muestra.setEstado("Rechazado");
+            }
+            ins.InsertInTable(muestra);
+            this.LoadTableModelMuestrasSangre();
+        }
+        
+
+    }//GEN-LAST:event_jButton6MouseClicked
 
     /**
      * @param args the command line arguments

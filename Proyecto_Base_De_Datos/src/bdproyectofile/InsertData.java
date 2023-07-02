@@ -62,7 +62,7 @@ public class InsertData {
             e.printStackTrace();
         };
     }
-        public void InsertInTableCt(Cita c){
+    public void InsertInTableCt(Cita c){
         try{   
             String ins= "INSERT INTO CITA (dni,idenfermera,nrolaboratorio,tipocita) VALUES(?,?,?,?)";
             PreparedStatement statement = myCon.prepareStatement(ins);
@@ -70,6 +70,17 @@ public class InsertData {
             statement.setLong(2, c.getIdEnfermera());
             statement.setInt(3, c.getNumLab());
             statement.setString(4,c.getTipocita());
+            statement.executeUpdate();
+        }catch(SQLException e){
+            e.printStackTrace();
+        };
+    }
+        public void InsertInTable(Muestra c){
+        try{   
+            String ins= "UPDATE MUESTRASANGRE SET ESTADO = ? , IDTIPOSANGRE = ? WHERE DNI = '"+c.getDNI()+"'";
+            PreparedStatement statement = myCon.prepareStatement(ins);
+            statement.setString(1,c.getEstado());
+            statement.setString(2, c.getIdtiposange());
             statement.executeUpdate();
         }catch(SQLException e){
             e.printStackTrace();
