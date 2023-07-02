@@ -19,6 +19,8 @@ import bdproyectofile.Paciente;
 import bdproyectofile.GetAllMuestraPctsBD;
 import bdproyectofile.Paciente_muestra;
 import bdproyectofile.InsertData;
+import bdproyectofile.Muestra;
+import bdproyectofile.GetAllMuestras;
 import java.sql.Connection;
 import java.util.HashSet;
 import java.util.List;
@@ -34,8 +36,11 @@ public class Homepage extends javax.swing.JFrame {
     private List<blood_total> preload_bt;
     private List<Paciente> inPatientTable;
     private List<Paciente_muestra> inPatientMstTable;
+    private List<Muestra> inMuestraSangreTable;
     private DefaultTableModel PatientTable;
     private DefaultTableModel PatientMstsTable;
+    private DefaultTableModel MuestrasSangreTable;
+    
     /**
      * Creates new form Homepage
      */
@@ -102,6 +107,22 @@ public class Homepage extends javax.swing.JFrame {
         jTextField8.setVisible(false);        
         jTabbedPane1.setVisible(true);
         this.LoadTableModelPacienteMuestras();
+    }
+    private void LoadTableModelMuestrasSangre(){
+        if (this.inMuestraSangreTable!=null){
+            MuestrasSangreTable.setRowCount(0);
+        }
+        this.MuestrasSangreTable = (DefaultTableModel)this.jTable1.getModel();
+        this.chargeMuestrasSangre();
+        for (var i : inMuestraSangreTable){
+            Object PctsMs[]= new Object[]{i.getDNI(),i.getIdtiposange(),i.getFecha(),i.getEstado()}; 
+            MuestrasSangreTable.addRow(PctsMs);
+        }
+    }
+    public void chargeMuestrasSangre(){
+        Connection test = new AutoConnection("sqlproject_","Oracle19c").getConnection();
+        GetAllMuestras toTablePm = new GetAllMuestras(test);
+        this.inMuestraSangreTable = toTablePm.GetMuestrasList();
     }
     public void chargePatientsMsts(){
         Connection test = new AutoConnection("sqlproject_","Oracle19c").getConnection();
@@ -1321,11 +1342,17 @@ private void SetImageLabel(JLabel labelName, String root){
     }//GEN-LAST:event_jComboBox1ItemStateChanged
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-    if (!jPanel4.isVisible()) {
-        this.jTabbedPane1.setSelectedIndex(1);
-    }
-    revalidate();
-    repaint();
+        try{
+            this.LoadTableModelMuestrasSangre();
+            if (!jPanel4.isVisible()) {
+                this.jTabbedPane1.setSelectedIndex(1);
+            }
+        }catch(Exception e){
+            this.jTabbedPane1.setSelectedIndex(1);
+           e.printStackTrace();
+        }      
+        revalidate();
+        repaint();
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
