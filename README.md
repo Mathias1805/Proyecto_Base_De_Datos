@@ -15,11 +15,11 @@ Contenido:
 * Archivo fuente del modelo lógico
 * Archivo fuente del modelo físico
 * Scripts:
-Scripts de creación de esquema de base de datos
-Scripts de usuarios
-Scripts de creación de objetos
-Scripts de carga de datos
-Scripts de objetos de programación
-Scripts de prueba de funcionalidad
+1. Scripts de creación de esquema de base de datos
+2. Scripts de usuarios
+3. Scripts de creación de objetos
+4. Scripts de carga de datos
+5. Scripts de objetos de programación
+6. Scripts de prueba de funcionalidad
 * Archivo de exportación de la base de datos (Oracle SQL developer)
 * Archivo fuente de la aplicación desarrollada (Java Netbeans) 
