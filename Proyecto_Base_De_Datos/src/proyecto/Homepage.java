@@ -91,7 +91,7 @@ public class Homepage extends javax.swing.JFrame {
         this.ChargeBloodTotal();
         this.setLocationRelativeTo(this);
         this.jLabel2.setText(currentUser.getNombre()+" "+currentUser.getApellido());
-
+        this.IDEnfermera.setText(String.valueOf(currentUser.getIdEnfermera()));
         SetImageLabel(jLabel3,"src/images/fondo2.jpg");
         SetImageLabel(jLabel7,"src/images/corazon.png");
         SetImageLabel(jLabel4,"src/images/Inline.png");
@@ -514,6 +514,11 @@ private void SetImageLabel(JLabel labelName, String root){
         jButton7.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jButton7.setForeground(new java.awt.Color(255, 255, 255));
         jButton7.setText("Mostrar Pacientes");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -1739,11 +1744,21 @@ private void SetImageLabel(JLabel labelName, String root){
         //generacion de cita
         Connection cnn = new AutoConnection("sqlproject_","Oracle19c").getConnection();
         InsertData ins = new InsertData(cnn);
-        
+        OneConsult one = new OneConsult(cnn);
+        String query = "SELECT NROLABORATORIO FROM LABORATORIO WHERE ESPECIALIDAD = '"+NombreDeLabo.getItemAt(NombreDeLabo.getSelectedIndex()).toString()+"'";
+        ResultSet rs;
+        one.setQuery(query);
+        rs = one.getResponse();
+        int id_lab = 0;
+        try{
+            if(rs.next()){
+                id_lab = rs.getInt(1);
+            }
+        }catch(SQLException e){}
         Cita cita = new Cita();
         cita.setDNI(jTextField6.getText());
         cita.setIdEnfermera(Long.parseLong(jTextField2.getText()));
-        cita.setNumLab(Integer.parseInt(jTextField4.getText()));
+        cita.setNumLab(id_lab);
         cita.setCantidadLt(0);
         if (jTextField5.isVisible()){
             cita.setTipocita("Donacion");
@@ -1942,6 +1957,10 @@ private void SetImageLabel(JLabel labelName, String root){
     private void NombreDeLaboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreDeLaboActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NombreDeLaboActionPerformed
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        this.LoadTableModelMuestrasSangre();
+    }//GEN-LAST:event_jButton7MouseClicked
 
     /**
      * @param args the command line arguments
