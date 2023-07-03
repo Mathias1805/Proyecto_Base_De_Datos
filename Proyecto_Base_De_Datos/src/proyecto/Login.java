@@ -207,6 +207,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        System.out.println("hola");
         if (this.verified() == true){
                 this.dispose();
                 Homepage_ = new Homepage(this.currUser);

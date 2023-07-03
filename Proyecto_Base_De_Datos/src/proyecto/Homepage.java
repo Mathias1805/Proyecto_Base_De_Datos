@@ -73,6 +73,7 @@ public class Homepage extends javax.swing.JFrame {
         SetImageLabel(jLabel52,"src/images/Verde.png");
         SetImageLabel(jLabel31,"src/images/fondotab6.jpg");
         SetImageLabel(jLabel53,"src/images/Barra.png");
+        SetImageLabel(jLabel66,"src/images/barrita.png");
         jComboBox3.setVisible(false);
         jComboBox5.setVisible(false);
         jTextField9.setVisible(false);
@@ -226,6 +227,8 @@ private void SetImageLabel(JLabel labelName, String root){
         jPanel1 = new javax.swing.JPanel();
         jLabel38 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        jLabel33 = new javax.swing.JLabel();
+        IDEnfermera = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -241,12 +244,13 @@ private void SetImageLabel(JLabel labelName, String root){
         jButton11 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
+        jLabel67 = new javax.swing.JLabel();
+        jLabel66 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
         jLabel44 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
         AnegTotal = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         BposTotal = new javax.swing.JLabel();
@@ -256,6 +260,7 @@ private void SetImageLabel(JLabel labelName, String root){
         OposTotal = new javax.swing.JLabel();
         OnegTotal = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
+        NombreDeLabo = new javax.swing.JComboBox<>();
         jLabel41 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         AposTotal = new javax.swing.JLabel();
@@ -363,6 +368,18 @@ private void SetImageLabel(JLabel labelName, String root){
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel33.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel33.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel33.setText("ID:");
+        jPanel2.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 210, 20));
+
+        IDEnfermera.setBackground(new java.awt.Color(102, 102, 102));
+        IDEnfermera.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        IDEnfermera.setForeground(new java.awt.Color(51, 51, 51));
+        IDEnfermera.setText("71957108");
+        jPanel2.add(IDEnfermera, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 190, 210, 20));
 
         jLabel5.setFont(new java.awt.Font("Tw Cen MT", 1, 65)); // NOI18N
         jLabel5.setText("Banco de");
@@ -482,6 +499,17 @@ private void SetImageLabel(JLabel labelName, String root){
         jPanel3.setBackground(new java.awt.Color(229, 229, 229));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel67.setBackground(new java.awt.Color(234, 240, 247));
+        jLabel67.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jLabel67.setForeground(new java.awt.Color(79, 85, 90));
+        jLabel67.setText("Laboratorio");
+        jLabel67.setToolTipText("");
+        jPanel3.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 130, 50));
+
+        jLabel66.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/barrita.png"))); // NOI18N
+        jLabel66.setBorder(new javax.swing.border.LineBorder(java.awt.Color.lightGray, 1, true));
+        jPanel3.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 240, 50));
+
         jButton7.setBackground(new java.awt.Color(68, 97, 242));
         jButton7.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jButton7.setForeground(new java.awt.Color(255, 255, 255));
@@ -527,17 +555,6 @@ private void SetImageLabel(JLabel labelName, String root){
             }
         });
         jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 570, 50));
-
-        jTextField4.setBackground(new java.awt.Color(234, 240, 247));
-        jTextField4.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(79, 85, 90));
-        jTextField4.setText("N° de Laboratorio");
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 240, 50));
 
         AnegTotal.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
         AnegTotal.setForeground(new java.awt.Color(244, 36, 149));
@@ -603,6 +620,22 @@ private void SetImageLabel(JLabel labelName, String root){
         jLabel40.setText("Tipo de Cita");
         jLabel40.setToolTipText("");
         jPanel3.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, 130, 50));
+
+        NombreDeLabo.setBackground(new java.awt.Color(234, 240, 247));
+        NombreDeLabo.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        NombreDeLabo.setForeground(new java.awt.Color(79, 85, 90));
+        NombreDeLabo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bioquímica", "Microbiología", "Inmunología", "Genética", "Farmacología", "Hematología", "Virología", "Patología", "Toxicología", "Epidemiología", "Biología-Molecular", "Química", "Analítica", "Anatomía", "Patológica", "Citología", "Biomedicina", "Bioinformática", "Neurociencia", "Biotecnología", "Fisiología", "Investigación" }));
+        NombreDeLabo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                NombreDeLaboItemStateChanged(evt);
+            }
+        });
+        NombreDeLabo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NombreDeLaboActionPerformed(evt);
+            }
+        });
+        jPanel3.add(NombreDeLabo, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 310, 240, 50));
 
         jLabel41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/barrita.png"))); // NOI18N
         jLabel41.setBorder(new javax.swing.border.LineBorder(java.awt.Color.lightGray, 1, true));
@@ -788,7 +821,7 @@ private void SetImageLabel(JLabel labelName, String root){
         jComboBox3.setBackground(new java.awt.Color(234, 240, 247));
         jComboBox3.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jComboBox3.setForeground(new java.awt.Color(79, 85, 90));
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-", "N.A", "Pendiente" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-", "N.A" }));
         jComboBox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox3ActionPerformed(evt);
@@ -1342,10 +1375,6 @@ private void SetImageLabel(JLabel labelName, String root){
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
@@ -1906,6 +1935,14 @@ private void SetImageLabel(JLabel labelName, String root){
                               
     }//GEN-LAST:event_jButton8MouseClicked
 
+    private void NombreDeLaboItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_NombreDeLaboItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NombreDeLaboItemStateChanged
+
+    private void NombreDeLaboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreDeLaboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NombreDeLaboActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1954,6 +1991,8 @@ private void SetImageLabel(JLabel labelName, String root){
     private javax.swing.JComboBox<String> CboxLab;
     private javax.swing.JComboBox<String> CboxTipoSangre;
     private javax.swing.JTextField EnfSearchValue;
+    private javax.swing.JLabel IDEnfermera;
+    private javax.swing.JComboBox<String> NombreDeLabo;
     private javax.swing.JLabel OnegTotal;
     private javax.swing.JLabel OposTotal;
     private javax.swing.JTextField PacSearchValue;
@@ -2002,6 +2041,7 @@ private void SetImageLabel(JLabel labelName, String root){
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
@@ -2033,6 +2073,8 @@ private void SetImageLabel(JLabel labelName, String root){
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
     private javax.swing.JLabel jLabel65;
+    private javax.swing.JLabel jLabel66;
+    private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -2061,7 +2103,6 @@ private void SetImageLabel(JLabel labelName, String root){
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
