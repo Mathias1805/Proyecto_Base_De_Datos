@@ -310,7 +310,7 @@ private void SetImageLabel(JLabel labelName, String root){
         jPanel5 = new javax.swing.JPanel();
         jComboBox8 = new javax.swing.JComboBox<>();
         jTextField15 = new javax.swing.JTextField();
-        jTextField16 = new javax.swing.JTextField();
+        SearchPacient = new javax.swing.JTextField();
         jButton10 = new javax.swing.JButton();
         jTextField17 = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -974,21 +974,25 @@ private void SetImageLabel(JLabel labelName, String root){
         });
         jPanel5.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 60, 270, 50));
 
-        jTextField16.setBackground(new java.awt.Color(234, 240, 247));
-        jTextField16.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jTextField16.setForeground(new java.awt.Color(79, 85, 90));
-        jTextField16.setText("Apellido");
-        jTextField16.addActionListener(new java.awt.event.ActionListener() {
+        SearchPacient.setBackground(new java.awt.Color(234, 240, 247));
+        SearchPacient.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        SearchPacient.setForeground(new java.awt.Color(79, 85, 90));
+        SearchPacient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField16ActionPerformed(evt);
+                SearchPacientActionPerformed(evt);
             }
         });
-        jPanel5.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 330, 270, 50));
+        jPanel5.add(SearchPacient, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 330, 270, 50));
 
         jButton10.setBackground(new java.awt.Color(68, 97, 242));
         jButton10.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jButton10.setForeground(new java.awt.Color(255, 255, 255));
         jButton10.setText("Buscar");
+        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton10MouseClicked(evt);
+            }
+        });
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
@@ -1544,7 +1548,10 @@ private void SetImageLabel(JLabel labelName, String root){
     }//GEN-LAST:event_jTextField14ActionPerformed
 
     private void jComboBox8ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox8ItemStateChanged
-        // TODO add your handling code here:
+        String selection = evt.getItem().toString();
+        if (selection.equals("Todos")){
+            this.LoadTableModelPaciente();
+        }
     }//GEN-LAST:event_jComboBox8ItemStateChanged
 
     private void jComboBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox8ActionPerformed
@@ -1555,9 +1562,9 @@ private void SetImageLabel(JLabel labelName, String root){
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField15ActionPerformed
 
-    private void jTextField16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField16ActionPerformed
+    private void SearchPacientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchPacientActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField16ActionPerformed
+    }//GEN-LAST:event_SearchPacientActionPerformed
 
     private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
         // TODO add your handling code here:
@@ -1730,10 +1737,7 @@ private void SetImageLabel(JLabel labelName, String root){
                 Object obj[] = {value1,value2,value3,value4,value5,value6,value7,value8};
                 Reportes.addRow(obj);
             }            
-        }catch(SQLException e){
-            
-        }
-
+        }catch(SQLException e){}
     }//GEN-LAST:event_jButton12MouseClicked
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
@@ -1961,6 +1965,50 @@ private void SetImageLabel(JLabel labelName, String root){
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
         this.LoadTableModelMuestrasSangre();
     }//GEN-LAST:event_jButton7MouseClicked
+    private void ShowPersonsOrder(OneConsult one,String query){
+        this.PatientTable = (DefaultTableModel)this.jTable3.getModel();
+        PatientTable.setRowCount(0);
+        one.setQuery(query);
+        ResultSet rs = one.getResponse();
+        try{
+            while(rs.next()){
+                String value1 = rs.getString(1);
+                String value2 = rs.getString(2);
+                String value3 = rs.getString(3);
+                Object obj[] = {value1,value2,value3};
+                PatientTable.addRow(obj);
+            }            
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
+        }
+        if(one.getErrorSql()!=null){
+            JOptionPane.showMessageDialog(null, one.getErrorSql().getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }       
+    private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
+        String selection = this.jComboBox8.getItemAt(this.jComboBox8.getSelectedIndex());
+        Connection cnn = new AutoConnection("sqlproject_","Oracle19c").getConnection();
+        OneConsult one = new OneConsult(cnn);
+        if (selection.equals("Todos")){
+            this.LoadTableModelPaciente();
+        }
+        if (selection.equals("DNI")){
+            String query = "SELECT * FROM PACIENTE WHERE DNI = '"+this.SearchPacient.getText()+"'";
+            ShowPersonsOrder(one,query);
+        }
+        if (selection.equals("Nombre")){
+            String query = "SELECT * FROM PACIENTE WHERE NOMBRE = '"+this.SearchPacient.getText()+"'";
+            ShowPersonsOrder(one,query);          
+        }
+        if (selection.equals("Apellido")){
+             String query = "SELECT * FROM PACIENTE WHERE APELLIDO = '"+this.SearchPacient.getText()+"'";    
+             ShowPersonsOrder(one,query);
+        }
+        if (one.getErrorSql()!=null){
+            JOptionPane.showMessageDialog(null, one.getErrorSql().getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton10MouseClicked
 
     /**
      * @param args the command line arguments
@@ -2015,6 +2063,7 @@ private void SetImageLabel(JLabel labelName, String root){
     private javax.swing.JLabel OnegTotal;
     private javax.swing.JLabel OposTotal;
     private javax.swing.JTextField PacSearchValue;
+    private javax.swing.JTextField SearchPacient;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -2118,7 +2167,6 @@ private void SetImageLabel(JLabel labelName, String root){
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField2;

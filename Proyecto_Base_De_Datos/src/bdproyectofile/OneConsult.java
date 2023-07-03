@@ -17,7 +17,7 @@ public class OneConsult {
     private Connection myCon = null;
     private Statement st = null;
     private ResultSet rs = null;
-    
+    private SQLException errorcon = null;
     public OneConsult(){
     }
     public OneConsult(Connection myCon){
@@ -34,11 +34,14 @@ public class OneConsult {
         try{
             rs = st.executeQuery(query);
         }catch(SQLException e){
-            e.printStackTrace();
+            errorcon = e;
         }
     }
     public ResultSet getResponse(){
         return rs;
+    }
+    public SQLException getErrorSql(){
+        return this.errorcon;
     }
         
 }
