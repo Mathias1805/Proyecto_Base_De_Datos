@@ -508,6 +508,7 @@ private void SetImageLabel(JLabel labelName, String root){
 
         jLabel66.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/barrita.png"))); // NOI18N
         jLabel66.setBorder(new javax.swing.border.LineBorder(java.awt.Color.lightGray, 1, true));
+        jLabel66.setOpaque(true);
         jPanel3.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 240, 50));
 
         jButton7.setBackground(new java.awt.Color(68, 97, 242));
@@ -826,7 +827,7 @@ private void SetImageLabel(JLabel labelName, String root){
         jComboBox3.setBackground(new java.awt.Color(234, 240, 247));
         jComboBox3.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jComboBox3.setForeground(new java.awt.Color(79, 85, 90));
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-", "N.A" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-", "N.A" }));
         jComboBox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox3ActionPerformed(evt);
