@@ -1727,7 +1727,9 @@ private void SetImageLabel(JLabel labelName, String root){
         if (ins.IsError()!=null){
             JOptionPane.showMessageDialog(null, ins.IsError().getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
         }
-
+        this.ChargeBloodTotal();
+        this.LoadTableModelPacienteMuestras();
+       
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
