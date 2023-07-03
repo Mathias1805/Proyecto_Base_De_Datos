@@ -14,7 +14,7 @@ Contenido:
 * Archivo fuente del modelo conceptual
 * Archivo fuente del modelo lógico
 * Archivo fuente del modelo físico
-* Scripts (se encuentra almacenado en una carpeta) :
+* Scripts (se encuentra almacenado en la carpeta "Scripts") :
 1. Scripts de creación de esquema de base de datos
 2. Scripts de usuarios
 3. Scripts de creación de objetos
