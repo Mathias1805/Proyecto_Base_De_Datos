@@ -232,6 +232,7 @@ public class Login extends javax.swing.JFrame {
         getAllEnferm enferm = new getAllEnferm(test);
         this.preloaduser = enferm.GetEfrmList(jTextField1.getText(), jPasswordField1.getText());
         System.out.println(this.preloaduser.get(0).getCorreo());
+        //2121212;
         if (preloaduser.get(0)!=null){
             this.currUser = preloaduser.get(0);
             return true;
