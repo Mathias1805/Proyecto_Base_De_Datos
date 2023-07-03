@@ -1800,10 +1800,13 @@ private void SetImageLabel(JLabel labelName, String root){
                 muestra.setEstado("Rechazado");
             }
             ins.InsertInTable(muestra);
+            if (ins.IsError()!=null){
+                JOptionPane.showMessageDialog(null, ins.IsError().getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
             this.LoadTableModelMuestrasSangre();
         }
-        if (ins.IsError()!=null){
-            JOptionPane.showMessageDialog(null, ins.IsError().getMessage(), "Error", ins.IsError().getErrorCode());
+        else{
+            JOptionPane.showMessageDialog(null, "Numero de dni no valido", "Error", JOptionPane.ERROR_MESSAGE);
         }
 
     }//GEN-LAST:event_jButton6MouseClicked
